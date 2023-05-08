@@ -51,4 +51,4 @@ Talk2Bits在添加内容后可自动生成配置代码，不仅导入Web页面�
 
 ## 默认回复配置Webhook
 
-请参考教程 [webhook-默认回复](/docs/zh/tutorial/webhook/03-webhook/)
+请参考教程 [webhook-默认回复](/docs/tutorial/webhook/03-webhook/)

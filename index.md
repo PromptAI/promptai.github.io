@@ -9,6 +9,6 @@ permalink: /
 
 <script>
 window.onload = () => {
-  window.location.href = '/docs/zh'
+  window.location.href = '/docs'
 }
 </script>
