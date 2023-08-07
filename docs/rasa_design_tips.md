@@ -1,38 +1,39 @@
 ---
 layout: en
-title: Rasa Design Tips
+title: Rasa 常见问题
 nav_order: 10
 ---
-### Case: How to improve the intent classification accuracy?
-In order to improve the intent classification accuracy, multiple example utterances are needed for each intent as these examples will be used to train the intent classification model. Examples with different intents should not overlap. A typical example is shipping number vs. order number.  If a customer provides a number, it might be difficult to determine where it is a shipping or an order number.  It is better to have the number as an intent and then assign this number to the slot of shipping number or phone number, according to the context. 
+### 案例：如何提高意图分类准确率？
+为了提高意图分类的准确性，每个意图需要多个示例话语，因为这些示例将用于训练意图分类模型。 具有不同意图的示例不应重叠。 一个典型的例子是发货编号与订单编号。 如果客户提供了一个号码，则可能很难确定它是运输号码还是订单号码。 最好将该号码作为意图，然后根据上下文将该号码分配给运输号码或电话号码的插槽。
 
-If you find that the intent recognition accuracy is not high enough, please confirm in turn:
-* Whether there are similar unconsolidated intents. If there are, please merge the intents and save it in the intent list for reuse.
-* Whether there are too few examples in the intent. If the number of examples is less than 3, or the number of examples for different intents is unbalanced, please add more examples as appropriate.
-* Whether an example for testing exists in two or more intents. If it exists, please reorganize your intents. Please do not put the same or similar example into different intents, which will confuse the model.
+如果您发现意图识别准确率不够高，请依次确认：
+* 是否存在类似的未合并意图。 如果有，请将意图合并并保存到意图列表中以供重复使用。
+* 意图中的示例是否太少。 如果示例数量少于3个，或者不同意图的示例数量不平衡，请酌情添加更多示例。
+* 用于测试的示例是否存在于两个或多个意图中。 如果存在，请重新组织您的意图。 请不要将相同或相似的示例放入不同的意图中，这会混淆模型。
 
-### Case: Filling similar slots in a form
-`Scenario`: In a user information collection form,  one needs to collect the user's last name, middle name, and first name through three rounds of conversations.
+### 案例：在表单中填充相似的槽位
+`场景`：在用户信息收集表单中，需要通过三轮对话收集用户的姓氏、中间名和名字。
 
-`Issues with common practices`: Typically, we add a user node after each slot collection node. One might find that this approach does not work effectively since the NLU component might not accurately identify the user's input, meaning the model cannot differentiate whether the user is referring to the last name, first name, or middle name, unless the model does context-sensitive intent classification. 
+`常见做法的问题`：通常，我们在每个槽集合节点之后添加一个用户节点。 人们可能会发现这种方法不起作用，因为 NLU 组件可能无法准确识别用户的输入，这意味着模型无法区分用户是指姓氏、名字还是中间名，除非模型执行上下文相关操作。 敏感意图分类。 
 
-`Our solution`:  One solution is to merge intentions as much as possible. In this case, we can follow these steps:
-1. Create a "Name" intent and provide examples with different last names, first names, and middle names. The examples should be as diverse as possible, and save them in the intent template.
-2. In `Project View` -- `Intents`, find the newly created intent and add mapping rules. Here, you can choose "Enter Text" to fill in all user inputs into the corresponding slots.
-3. Add this intent to each slot collection item in the form.
-By following these steps, we can improve the accuracy of intent recognition and successfully fill slots based on user input.
+“我们的解决方案”：一种解决方案是尽可能地合并意图。 在这种情况下，我们可以按照以下步骤操作：
+1. 创建“名称”意图并提供具有不同姓氏、名字和中间名的示例。 示例应该尽可能多样化，并将它们保存在意图模板中。
+2. 在“项目视图”-“意图”中，找到新创建的意图并添加映射规则。 在这里，您可以选择“输入文本”将所有用户输入填充到相应的插槽中。
+3. 将此意图添加到表单中的每个插槽集合项中。
 
-### Case: Recovering a form after interruption
-`Scenario`: A user interrupts a form by asking a question unrelated to the form. We expect the chatbot to answer her question and then return to the form.
+通过遵循这些步骤，我们可以提高意图识别的准确性，并根据用户输入成功填充槽位。
 
-`Issues with common practices`: Although we may have described the user's question and the system's response outside the form or in other parts of the flow, we would expect the chatbot to understand the user's question and return to the current form logic. However, in reality, the form's decision logic is unless explicitly instructed, it will default to exit the form. Therefore, even if the user's question has been answered in other parts of the flow, the form will not return to where it leaves off.
+### 案例：中断后恢复表格
+`场景`：用户通过询问与表单无关的问题来中断表单。 我们希望聊天机器人回答她的问题，然后返回表单。
 
-`Our solution`: Place user questions in the FAQ module and more complex ones in the interrupt section of the form. Only the FAQ and the interrupt section within the form can allow the form to resume after replying to the user.
+`常见做法的问题`：尽管我们可能已经在表单之外或流程的其他部分描述了用户的问题和系统的响应，但我们希望聊天机器人能够理解用户的问题并返回到当前的表单逻辑。 然而，实际上，表单的决策逻辑是除非明确指示，否则将默认退出表单。 因此，即使用户的问题已在流程的其他部分得到解答，表单也不会返回到其中断的位置。
 
-By implementing this approach, the chatbot can provide answers to user questions, and return to the form after addressing the interruption.
+`我们的解决方案`：将用户问题放在常见问题解答模块中，将更复杂的问题放在表单的中断部分中。 只有表单中的常见问题解答和中断部分可以允许表单在回复用户后恢复。
 
-### Case: RASA FAQ vs. GPT-based FAQ
-RASA FAQ is a classification model.  LLM-based FAQ is an embedding based ranking model + retrieval model.  The ranking model can work on a much larger number of questions, thus more scalable.  It also does not require many training examples.  
+通过实施这种方法，聊天机器人可以提供用户问题的答案，并在解决中断后返回表单。
+
+### 案例：RASA 常见问题解答与基于 GPT 的常见问题解答
+RASA FAQ 是一个分类模型。 基于LLM的FAQ是基于嵌入的排名模型+检索模型。 排名模型可以处理更多数量的问题，因此更具可扩展性。 它也不需要很多训练示例。 
 
 
 

@@ -1,6 +1,6 @@
 ---
 layout: en
-title: Advanced Control
+title: 更多功能
 nav_order: 9
 has_children: true
 ---

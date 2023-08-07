@@ -1,43 +1,40 @@
 ---
 layout: en
-title: Bot Reply Conditions
-parent: Advanced Control
+title: 回复条件
+parent: 更多功能
 nav_order: 2
 ---
-# Reply Conditions
-{: .no_toc .header }
-Before the bot replies, the content of the reply can be determined by whether the slot has a value or not. You can use this mechanism to implement the  basic logic of if-then-else. 
+在机器人回复之前，可以通过槽是否有值来确定回复的内容。 您可以使用此机制来实现 if-then-else 的基本逻辑。
 
-## Query weather 
-Depending on the user utterance, there are two possible replies:
-- Reply with the weather information or
-- Ask the user for the location
+## 查询天气
+根据用户的话语，有两种可能的回复：
+- 回复天气信息或
+- 询问用户位置
   
 ![01-reply-condition.png](/assets/images/tutorial/reply_condition/01-reply-condition.png)
 
-If the user utterance doesn't contain the location information (At this point we can use `Reply Conditions` to detect), the bot needs to ask the user:
-- Please tell me your city?
-- 
+如果用户话语不包含位置信息（此时我们可以使用`回复条件`来检测），机器人需要询问用户：
+- 请告诉我你所在的城市？
 ![02-reply-condition.png](/assets/images/tutorial/reply_condition/02-reply-condition.png)
 
-In this case, we can extract 'city' to determine the location.  
+在这种情况下，我们可以提取"city"来确定位置。 
 
-## Set Reply Conditions
-- Click `Reply Conditions`
-- Select `Slot Name` with `area`
-- Enter `Not Null` to `Conditional value`
+## 设置回复条件
+- 点击`回复条件`
+- 选择带有`区域`的`插槽名称`
+- 在`条件值`中输入`Not Null`
 
-This means that the bot will reply when `area` has a value
+这意味着当`area`有值时机器人会回复
 ![03-reply-condition.png](/assets/images/tutorial/reply_condition/03-reply-condition.png)
 
-You can set the condition of asking for the location:
-- Click `Reply Conditions`
-- Select `Slot Name` with `area`
-- Enter `Null` to `Conditional value`
+您可以设置询问位置的条件：
+- 点击`回复条件`
+- 选择带有`区域`的`插槽名称`
+- 在`条件值`中输入`Null`
 
-This reply will be delivered when there is no value for `area`.
+当`area`没有值时，将发送此回复。
 
 ![04-reply-condition.png](/assets/images/tutorial/reply_condition/04-reply-condition.png)
 
-## Tips
-The slot value can be used to guide the dialog flow to different branches. 
+## 技巧
+槽值可用于引导对话流到不同的分支。
