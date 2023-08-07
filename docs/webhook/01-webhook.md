@@ -1,77 +1,77 @@
 ---
 layout: en
-title: Concept of webhook
+title: Webhook 的概念
 parent: Webhook
 nav_order: 1
 ---
-Here is an example of querying weather for your reference.
+下面是一个查询天气的例子，供大家参考。
 ```text
-User: Hi, can you please tell me the weather in New York?
-Bot: Sure! Let me check the current weather conditions for you. Just a moment, please.
-# It needs to trigger a webhook that communicates with a third party weather server to query the weather in "New york."
+用户：嗨，你能告诉我纽约的天气吗？
+聊天机器人：当然！ 让我为您检查一下当前的天气状况。 请稍等片刻。
+# 它需要触发一个与第三方天气服务器通信的 webhook，以查询“纽约”的天气。
 
-# Once the query result recieved, it can be packaged in a response and sent to the user.
-Bot: The current weather in New York is 82°F (28°C) with mostly sunny conditions. The wind is blowing at a speed of 5 mph (8 km/h), and the humidity is around 60%. Is there anything else you would like to know?
-User: Thank you for the forecast! That's helpful.
+# 一旦收到查询结果，就可以将其打包在响应中并发送给用户。
+聊天机器人：纽约当前天气为 82°F (28°C)，大部分时间晴朗。 风速为 5 英里/小时（8 公里/小时），湿度约为 60%。 您还有什么想知道的吗？
+用户：谢谢您的预测！ 这很有帮助。
 ```
 ---
-There are two steps to call a webhook. 
+调用 Webhook 有两个步骤。
 
-### Step 1.
-Click `Project View` - `Webhooks`. Click `+ Add` on the upper right corner.  Create a webhook to call the weather API (more details later). 
+### 步骤 1.
+单击`项目视图`-`Webhooks`。 单击右上角的`+ 添加`。 创建一个 webhook 来调用天气 API（稍后详细介绍）。
 
 ![webhook_weather_setting.jpg](/assets/images/webhook_weather_setting.jpg)
 
-### Step 2. 
-Create a flow for querying weather and select a webhook in a bot reply node. 
+### 步骤 2. 
+创建一个用于查询天气的流，并在机器人回复节点中选择一个 Webhook。
 
 ![webhook_weather_use.jpg](/assets/images/webhook_weather_use.jpg)
 
-The following is the detailed setting instruction for Step 1.
+以下是步骤1的详细设置说明。
 ### Basic Settings
-- name : The name to refer the new webhook.
-- URL : The url here has the same meaning as http url. Please pay attention to the 'http/https' protocol when filling in here. It is the access link that the third party service provides to you.  In addition, the URL address also supports the transmission of variable value. When calling the webhook, the corresponding variable placeholder will be replaced with its corresponding value.  As shown in the figure, if we define a slot `city` in the flow diagram, we can use `{city}` to send the value to the third party service provider. 
+- 名称：引用新 webhook 的名称。
+- URL：这里的url与http url含义相同。 此处填写时请注意`http/https`协议。 是第三方服务向您提供的访问链接。 另外，URL地址还支持变量值的传输。 当调用webhook时，相应的变量占位符将被替换为其相应的值。 如图所示，如果我们在流程图中定义了一个槽`city`，我们可以使用`{city}`将值发送给第三方服务提供商。
    ```
    app.promptai.us/rpc/gaode/weather?key=c4f69dbbd66cfc7f4e49310fea69dff1&city={city}
    ```
   
-### Request Settings
-- Request Method: Represents the http request method, which upports the following. 
+### 请求设置
+- 请求方法：表示http请求方法，支持以下几种。
    * get
    * post
    * put
    * delete
 
-- Request Header: Represents the http request header, which can be added here when the external interface needs a specific request header.
-   * No header     : nothing
-   * Custom header : key-value pairs
+- 请求头：表示http请求头，当外部接口需要特定的请求头时可以在这里添加。
+   * 无: -
+   * 自定义: 键值对
 
-- Request Body: Supports four formats. 
+- 请求体: 支持四种方式. 
 
-| Type | Content-Type                      | Format            | Comment                      |
+| 类型 | Content-Type                      | 格式化            | 备注                      |
 |------|-----------------------------------|-------------------|:-----------------------------|
-| None | -                                 | -                 | -                            |
-| Form | application/x-www-form-urlencoded | key - value pairs | File not support             |
+| 无 | -                                 | -                 | -                            |
+| Form | application/x-www-form-urlencoded | 键值对 | 文件暂时不支持            |
 | JSON | application/json                  | json string       |                              |
 | Text | text/plain                        | text string       |                              |
 
 
- * Notice: Same as URL, we also support the use of slot value in the request body, e.g., '{city}'.
+ * 注意：与 URL 相同，我们也支持在请求正文中使用槽值，例如`{city}`。
 
-### Response Settings
-These settings handle the result received from the third party API call and package it as a response to the user.  If the result does arrive, we could take one of the following actions. 
+### 响应设置
+这些设置处理从第三方 API 调用收到的结果，并将其打包为对用户的响应。 如果结果确实出现，我们可以采取以下操作之一。
 
-| Name                    |  processing                                                          | Response Data Requirement |
+| 名称                    |  处理过程                                                          | 需要响应的格式 |
 |-------------------------|----------------------------------------------------------------------|---------------------------|
-| No Response             | Ignore the returned result and output nothing                        | -                         |
-| Original Response       | Display the returned results directly                                | -                         |
-| Customized Response     | Extract fields from the result through JsonPath, and package them in a customized response   | json         |
+| 无响应             | 忽略返回结果并且不输出消息                        | -                         |
+| 原始响应       | 不处理响应，展示原始输出                               | -                         |
+| 自定义响应     | 通过JsonPath从结果中提取字段，并将其打包到自定义响应中   | json         |
 
-Due to many factors, sometimes the API call fails.  We need to send a hint to the user when the webhook request fails. Note that this situation is different from an empty result returned by the API call.  Set a short message at `Returning message if the call fails or does not receive any result`.
+由于多种因素的影响，有时API调用会失败。 当 webhook 请求失败时，我们需要向用户发送提示。 请注意，这种情况与 API 调用返回的空结果不同。 在`调用失败或未收到任何结果返回消息`处设置一条短信。
 
 ![webhook6.png](/assets/images/webhook_weather_response_setting.jpg)
 
-Take the weather query as an example.  Suppose there is a weather service that responds with:
+以天气查询为例。 假设有一个气象服务响应：
 ```json
 {
   "temperature": "82°F (28°C)",
@@ -80,44 +80,44 @@ Take the weather query as an example.  Suppose there is a weather service that r
   "humidity": "60%"
 }
 ```
-There are four types of responses we can generate: 
+我们可以生成四种类型的响应：
 ```text
-// - Ignore the status code  【Bot will reply what you set】
-//  for some reason, the weather service does not respond, we set text:
-// "The service is unavailable, please try again later" at `Returning message if the call is completed successfully`
-User: Hi, can you please tell me the weather in New York?
-Bot : The service is unavailable, please try again later
+// - 忽略状态码【机器人会回复你设置的内容】
+// 由于某种原因，天气服务没有响应，我们设置文本：
+// `调用成功返回消息`处的“服务不可用，请稍后再试”
+用户：嗨，你能告诉我纽约的天气吗？
+机器人聊天 : 服务不可用，请稍后重试
 
-// - Ignore Bot will not reply any message】
-User: Hi, can you please tell me the weather in New York?
+// - 忽略Bot不会回复任何消息】
+用户：嗨，你能告诉我纽约的天气吗？
 
-//  - Original response 【Bot will reply whatever the api return】
-User: Hi, can you please tell me the weather in New York?
-Bot : {"temperature":"82°F (28°C)","conditions":"Mostly sunny","wind":"5 mph (8 km/h)","humidity":"60%"}
+// - 原始响应【机器人将回复任何api返回的内容】
+用户：嗨，你能告诉我纽约的天气吗？
+机器人聊天：{“温度”：“82°F (28°C)”，“条件”：“大部分晴天”，“风”：“5 英里/小时（8 公里/小时）”，“湿度”：“60%” }
 
-// - User customized response 【Bot will reply what you set with value extracted from the response】
-// For example, we can set text:
-// Sure! I can provide you with the weather information for New York. Here is the current weather forecast for New York: temperature:{temperature} 、wind:{wind} 、conditions: {conditions} and humidity: {humidity}
-// at `Returning message if the call is completed successfully`
+// - 用户自定义响应【机器人将使用从响应中提取的值来回复您设置的内容】
+// 例如我们可以设置文本：
+// 当然！ 我可以为您提供纽约的天气信息。 这是纽约当前的天气预报：温度：{温度}、风：{风}、条件：{条件}和湿度：{湿度}
+// 在`如果调用成功完成则返回消息`
 
-User: Hi, can you please tell me the weather in New York?
-Bot : Sure! I can provide you with the weather information for New York.
-      Here is the current weather forecast for New York: temperature:82°F (28°C) 、wind:5 mph (8 km/h) 、conditions:Mostly sunny and humidity:60%
+用户：嗨，你能告诉我纽约的天气吗？
+机器人聊天：当然！ 我可以为您提供纽约的天气信息。
+       这是纽约当前的天气预报：温度：82°F (28°C) 、风：5 英里/小时（8 公里/小时）、条件：大部分晴天和湿度：60%
 ```
 
-### Insert value to slots in Rasa
-The above process needs a step to extract values from the API call and fill them in slots.  Suppose we have the following result sent by the weather service API. 
+### 将值插入 Rasa 中的槽
+上述过程需要一个步骤来从 API 调用中提取值并将其填充到槽中。 假设我们有气象服务 API 发送的以下结果。 
 
 ```json
 {
   "temperature": "82°F (28°C)",
-  "conditions": "Mostly sunny",
+  "conditions": "大部分晴天",
   "wind": "5 mph (8 km/h)",
   "humidity": "60%",
-  "city": "New York"
+  "city": "纽约"
 }
 ```
-We shall do the following JsonPath refernece and map the value to the slots in Rasa. 
+我们将执行以下 JsonPath 引用并将值映射到 Rasa 中的槽。
 
 ![52-webhook](/assets/images/webhook_weather_response_overview.jpg)
 
@@ -133,24 +133,23 @@ Bot : The current temperature in New York is 82°F (28°C)
 
 ---
 
-## Common Issues
-Q1: When referring a slot in the API call, what happens if the slot doesn't exist or if the slot is misspelled?
+## 常见问题
+Q1：在 API 调用中引用槽位时，如果槽位不存在或者槽位拼写错误，会发生什么情况？
    
-Take the following URL as an example：`http://localhost/api?area={area}&date={date}`
-- If area=New York, when successfully called, the actual requested url::
+以下面网址为例：`http://localhost/api?area={area}&date={date}`
+- 如果area=New York，调用成功时，实际请求的url：
   `http://localhost/api?area=New York`
-- If the slot does not exist or is misspelled, it will not be called correctly, the actual requested url might be:  `http://localhost/api?area={area}&date={date}`
+- 如果slot不存在或者拼写错误，将无法正确调用，实际请求的url可能是： `http://localhost/api?area={area}&date={date}`
 
-Q2: Can variables extracted in "Response Settings" have the same name as slots existing in the dialog flows?
+Q2：`响应设置`中提取的变量是否可以与对话流中存在的槽同名
+他们的名字可以相同。 这些槽将填充提取的值。
 
-  Their name can be the same.  The slots will be filled with the extracted value. 
-
-Q3: How does the extracted slot value change when the same webhook is called multiple times?
+Q3：多次调用同一个webhook时，提取的slot值如何变化？
    
-The extracted slot will be the value extracted after the last call to the webhook, that is, the value of the slot can change.
+提取的槽位将是上次调用 webhook 后提取的值，即槽位的值可以更改。
 
-Q4: Can the slots generated by the webhook value extraction be used in other parts of the flow design?
+Q4：webhook 值提取生成的槽可以用于流程设计的其他部分吗？
 
-If you want to use these slots, please define them in the project in advance.
+如果您想使用这些槽位，请提前在项目中定义它们。
 
-More examples [click here](/docs/webhook/02-webhook/).
+更多例子 [click here](/docs/webhook/02-webhook/).

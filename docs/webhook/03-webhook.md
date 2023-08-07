@@ -1,40 +1,36 @@
 ---
 layout: en
-title: Webhook-Fallback
+title: Webhook - Fallback
 parent: Webhook
 nav_order: 3
 ---
 
-# Webhook
-{: .no_toc .header }
-When a user's intention is not recognized, webhook provides another way for Fallback, which, for example, can call the API of a large language model to return an answer.
+当用户的意图无法识别时，webhook提供了另一种方式Fallback，例如可以调用大语言模型的API返回答案。
 
 ## Webhook
-Webhook supports obtaining the latest user input and dialog id through slots.
+Webhook支持通过slots获取最新的用户输入和会话ID。
+-latest_message：触发 webhook 时的用户输入。 如果是Fallback触发的webhook，则为触发fallback时的用户输入
+- send_id：当前会话ID
 
-- latest_message: User input when webhook is triggered. If it is a webhook triggered by Fallback, it is the user input when the fallback is triggered
-- send_id: current session id
-
-### Example
-Next, we will demonstrate how to connect Fallback to a webhook.  The webhook needs to call an external API to get a response. Suppose we have an API like the following:
-
+### 例子
+接下来，我们将演示如何将 Fallback 连接到 Webhook。 Webhook 需要调用外部 API 来获取响应。 假设我们有一个如下所示的 API：
 ```shell
 curl http://localhost/chat?input=What can PromptAI do?&chatId=xxxx
 
 {
-	"message": "PromptAI is a cloud-based platform for designing professional intelligent assistants. It offers a range of features, including visual design tools, fast customization, and convenient integration. PromptAI can be used to create complex conversation flows and integrate them into business systems."
+	"message": "PromptAI是一个基于云的平台，用于设计专业智能助手。 它提供了一系列功能，包括可视化设计工具、快速定制和便捷集成。 PromptAI 可用于创建复杂的对话流并将其集成到业务系统中。"
 }
 ```
 
-The question and session ID are used as input through the Http Get request, and the response returns data in JSON format, where the message field is the reply.
-### Webhook configuration
+通过 Http Get 请求将问题和会话 ID 作为输入，响应返回 JSON 格式的数据，其中消息字段为回复。
+### Webhook 配置
 
 ![03-1-webhook.png](/assets/images/webhook_fallback.jpg)
 
-First, we configure the name and request address, and use the built-in slots `{latest_message}` and `{send_id}` in the request address to send the user input and session id to the API according to the API requirements.  After receiving the returned message, we put `message` to `relpy` in the response processing part, and send `{reply}` to the user. 
+首先，我们配置名称和请求地址，并根据API要求使用请求地址中内置的槽`{latest_message}`和`{send_id}`将用户输入和会话id发送到API。 收到返回的消息后，我们将`message`放入响应处理部分的`relpy`中，并将`{reply}`发送给用户。
 
-### Configure Fallback with Webhook
+### 使用Webhook配置Fallback
 
-Select "Overview" on the left navigation pane and then click "Fallback" in the diagram. 
+选择左侧导航窗格中的“Overview”，然后单击图中的“Fallback”。 
 
 ![03-3-webhook.jpg](/assets/images/webhook_falllbak_use.jpg)
