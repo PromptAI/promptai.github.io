@@ -1,6 +1,6 @@
 ---
 layout: en
-title: 智能回复模版
+title: 用户意图模版
 parent: Developer's Guide
 nav_order: 16
 ---

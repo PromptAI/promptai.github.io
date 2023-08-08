@@ -1,6 +1,6 @@
 ---
 layout: en
-title: Release
+title: 发布
 nav_order: 10
 parent: Developer's Guide
 has_children: true

@@ -1,47 +1,47 @@
 ---
 layout: en
-title: Project Settings
+title: 项目设置
 nav_order: 1
-parent: Release
+parent: 发布
 grand_parent: Developer's Guide
 ---
-Project Settings is located under the menu of Project Tool in the left navigation pane. 
+项目设置位于左侧导航窗格中的项目工具菜单下。
 
-## Overview
-Project settings include the following items:
-- Name
-- Language
-- Description
-- Welcome Message
-- Fallback
-- Icon
+## 概述
+项目设置包括以下几项：
+- 姓名
+- 语言
+- 描述
+- 欢迎辞
+- 倒退
+- 图标
 
-In addition to the above configuration, there are other configuration items:
-- Options for Faq and flows to be rendered as buttons,
-- The first message of faq and each flow.
+除了上面的配置之外，还有其他的配置项：
+- 将常见问题解答和流程呈现为按钮的选项，
+- 常见问题解答和每个流程的第一条消息。
 
-## Welcome Message
-`Welcome Message` is the chatbot's first message, you can configure it in the following ways:
+## 欢迎语
+`欢迎语`是聊天机器人的第一条消息，您可以通过以下方式配置它：
 
 ![welcome_config_1](/assets/images/tutorial/welcome_config_1.jpg)
-or configure here.
+或者在这里配置。
 
 ![welcome_config_2](/assets/images/tutorial/welcome_config_2.jpg)
 
 ## Fallback
-You can check the detailed configuration of  `Fallback` [here](https://doc.promptai.us/docs/tutorial/default_reply/)
+可以查看 `Fallback` 的详细配置 [这里](https://doc.promptai.us/docs/tutorial/default_reply/)
 
-## Options for FAQ and Flows to be rendered as buttons
-Whether to display each module as a button below the welcome message, you can configure it here, and the image below contains the effect of the `Not Display` option.
+## FAQ 和 流图的选项呈现为按钮
+是否将每个模块显示为欢迎消息下方的按钮，您可以在此处进行配置，下图包含“不显示”选项的效果。
 
 ![as_button_1](/assets/images/tutorial/as_button_1.jpg)
 
-Other effects are:
+其他效果有：
 
 1. ![as_button_2](/assets/images/tutorial/as_button_2.jpg)
 2. ![as_button_3](/assets/images/tutorial/as_button_3.jpg)
 
-## First Message
-As shown in the figure below, you can configure the first message of each flow.
+## 第一条消息
+如下图所示，您可以配置每个流图的第一条消息。
 
 ![guide_word_1](/assets/images/tutorial/guide_word_1.jpg)

@@ -1,57 +1,57 @@
 ---
 layout: en
-title: Project Release
+title: 项目发布
 nav_order: 2
-parent: Release
+parent: 发布
 grand_parent: Developer's Guide
 ---
 
-## Select modules to release
-Click the project tool on the left navigation pane, click Release, select which modules to release, and then click Release Button. 
+## 选择模块发布
+单击左侧导航栏的项目工具，单击发布，选择要发布的模块，然后单击发布按钮。 
 
-- If there is an update after publishing, you need to click Release again to make the update take effect.
+- 如果发布后有更新，需要再次点击发布才能使更新生效。
 
 ![release_not_release.jpg](/assets/images/tutorial/release_not_release.jpg)
 
-## Releasing
-As shown in the figure, after the module to be released is currently selected, an icon will prompt the task status on the left side of the release button, and the text of the release button will change to being released. At this time, users can jump to other pages to operate, or stay here to wait for the completion of training,
-Or click Stop to stop releasing.
+## 发布
+如图，当前选中需要发布的模块后，发布按钮左侧会出现图标提示任务状态，并且发布按钮的文字会变为正在发布。 此时用户可以跳转到其他页面进行操作，或者停留在这里等待训练完成，
+或者点击“停止”停止发布。
 
 ![release_releasing.jpg](/assets/images/tutorial/release_releasing.jpg)
 
-## Releasing completed
+## 发布完成
 
-As shown in the figure, after the releasing is completed, the icon next to the releasing will change, and the mouse will be placed on the icon to prompt the completion of the releasing.
+如图所示，发布完成后，发布旁边的图标会发生变化，将鼠标放在该图标上，提示发布完成。
 
 ![release_completed.jpg](/assets/images/tutorial/release_completed.jpg)
 
-## Test
-As shown in the figure, enter the chat information in the robot dialog window to verify whether the robot replies as expected.
-What we verify here is that the user asks whether the fruit price can correctly obtain the fruit price information from the webhook, and the result meets the expectation.
+## 测试
+如图所示，在机器人对话窗口中输入聊天信息，验证机器人是否按预期回复。
+这里我们验证的是，用户询问水果价格是否能够从webhook正确获取水果价格信息，结果符合预期。
 
 ![release_test.jpg](/assets/images/tutorial/release_test.jpg)
 
-## Release in your app
-The released project can be deployed through QR code and embedded any web pages
+## 在您的应用程序中发布
+发布的项目可以通过二维码部署并嵌入任意网页
 
-Requirement:
- - Internet support
- - Allow access: https://app.promptai.cn  at port: 443
- - Modern browsers: like latest version of Chrome
+要求：
+  - 互联网支持
+  - 允许访问：https://app.promptai.cn 端口：443
+  - 现代浏览器：例如最新版本的 Chrome
 
-###  QR code [Mobile]
-When you need to access the mobile terminal, you can experience it by accessing the mobile terminal link or scanning the QR code.
+### 二维码 [移动端]
+当您需要访问移动端时，可以通过访问移动端链接或扫描二维码进行体验。
 ![release_qrcode.jpg](/assets/images/tutorial/release_qrcode.jpg)
 
-* Embed the QR code into the website, and users can experience the published projects through mobile browser scanning or WeChat scanning
+* 将二维码嵌入网站，用户通过手机浏览器扫描或微信扫描即可体验已发布的项目
 
 ![release_mobile_demo.jpg](/assets/images/tutorial/release_mobile_demo.jpg)
 
-### Web page 
-1. As shown, here we have prepared a project and released it in the project
+### Web 页面
+1. 如图，这里我们准备了一个项目，并在项目中发布
    ![release_web_script.jpg](/assets/images/tutorial/release_web_script.jpg)
 
-    - Paste the "Web Embedded Code(javascript)" in your html header
+    - 将“Web(javascript)”粘贴到您的 html 标头中
     ```html
         '<!DOCTYPE html>
         <html lang="en">
@@ -86,5 +86,5 @@ When you need to access the mobile terminal, you can experience it by accessing 
         </html>  '  
     ```
 
-2. When we open the website, we can see that there are more chat boxes in the lower right corner of the website. Click Open to start an intelligent session. So far, our intelligent session has been published.
+2. 当我们打开网站时，我们可以看到网站的右下角多了一些聊天框。 单击“打开”启动智能会话。 至此，我们的智能会话已经发布了。
    ![release_web_script_demo_1.jpg](/assets/images/tutorial/release_web_script_demo_1.jpg)

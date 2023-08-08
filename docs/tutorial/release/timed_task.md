@@ -2,7 +2,7 @@
 layout: en
 title: 定时任务
 nav_order: 2
-parent: Release
+parent: 发布
 grand_parent: Developer's Guide
 ---
 {: .no_toc .header }
