@@ -1,13 +1,13 @@
 ---
 layout: en
-title: Dictionary
+title: 字典
 parent: Developer's Guide
 nav_order: 18
 ---
-When we are doing entity recognition to fill slots, sometimes the name of entities can be predefined. In this case, a dictionary can facilitate entity recognition. 
+当我们在进行实体识别来填充槽位时，有时可以预先定义实体的名称。 在这种情况下，字典可以促进实体识别。
 
-## Add a dictionary
-Here we add a dictionary to the slot `State Name`. The dictionary of US states can be described as follows:
+## 新增一个字典
+这里我们向槽`State Name`添加一个字典。 美国各州词典可以这样描述：
 
 ```text
 Alabama
@@ -22,23 +22,23 @@ Florida
 Georgia
 ...
 ```
-Click the `Upload` button behind the `State Name`, and upload the dictionary.
+点击`State Name`后面的`Upload`按钮，上传词典。
 
 ![slot_upload_dictionary.jpg](/assets/images/tutorial/slot_upload_dictionary.jpg)
 
-After uploading successfully, you can click `detail` to check which dictionary has been uploaded successfully, or you can `download` to check the dictionary.
+上传成功后，您可以点击`详情`查看哪些词典已上传成功，也可以`下载`查看词典。
 
 ![slot_upload_dictionary_success.jpg](/assets/images/tutorial/slot_upload_dictionary_success.jpg)
 
-## An example
-Suppose we create a dialog flow diagram ''where are you from?''.
+## 一个例子
+假设我们创建一个对话流程图“你来自哪里？”。
 
-1. Add user utterance nodes as follows:
+1. 添加用户节点如下：
    
    ![dict-04](/assets/images/tutorial/dict_user.png)
    
-   `Note`: In order to improve the recognition accuracy of a dictionary, at least two examples need to be marked here.
-2. When the state name is mentioned by the user and extracted successfully, the bot can reply as follows:
+   `注意`: 为了提高词典的识别准确率，这里至少需要标注两个例子。
+2. 当用户提及状态名称并成功提取时，机器人可以回复如下：
    
    ![dict-05](/assets/images/tutorial/dict_bot.png)
 
