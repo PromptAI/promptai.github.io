@@ -1,22 +1,22 @@
 ---
 layout: en
-title: Recycle Bin
+title: 回收站
 parent: Developer's Guide
 nav_order: 21
 ---
-When a designer deletes one component in dialog flows, the system will move it to the recycle bin.  The designer can recover it from the recycle bin.
+当设计者删除对话流中的某个组件时，系统会将其移至回收站。 设计者可以从回收站中回收它。
 
-## Supported component types
-- User node
-- Bot node
-- Form
-- Slot
-- Interrupt
-- Goto
+## 支持的节点类型
+- 用户
+- 智能回复
+- 表单
+- 插槽
+- 中断
+- 跳转
 
-## Insert a component 
-* Select `What can i do for you today?` bot node in the recycle bin and drag it to the node to be linked. When the `+` icon appears, release it.
-  <br/>The node will be inserted behind the node you dragged to.
+## 插入节点
+* 在回收站中选择“今天我能为您做什么？”机器人节点，并将其拖至要链接的节点上。 当`+`图标出现时，松开它。
+  <br/>该节点将插入到您拖动到的节点后面。
   
 ![recycle_overview.jpg](/assets/images/tutorial/recycle_overview.jpg)
 
