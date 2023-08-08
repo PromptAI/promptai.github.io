@@ -1,7 +1,7 @@
 ---
 layout: en
 title: 创建表单
-parent: Video Tutorials
+parent: 视频教程
 nav_order: 2
 ---
 
