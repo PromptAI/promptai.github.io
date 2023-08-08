@@ -1,20 +1,20 @@
 ---
 layout: en
-title: Dialog Flow Design
+title: 对话流程设计
 nav_order: 2
 has_children: false
 ---
-# Dialog Flow Design
+# 对话流程设计
 {: .no_toc .header }
 
-PromptDialog provides a dialog flow editing tool on cloud (via Amazon AWS/US).  This means that you can access the design anytime and anywhere. As long as you have an internet connection, you can easily edit and manage your chatbots.  A designer can create/edit/upload dialog flows that reflect business logic.  The flows can be viewed as annotated conversations like the ones in RASA-X, but with much reduced annotation effort.  PromptDialog automaticallly converts the flows to RASA stories and codes (open source).  The designer can train and test the code in her own local running environment.  
+PromptDialog在云端提供对话流编辑工具,这意味着您可以随时随地访问设计。 只要有互联网连接，您就可以轻松编辑和管理您的聊天机器人。设计人员可以创建/编辑/上传反映业务逻辑的对话流,这些流可以被视为带标注的对话，就像RASA-X 中的对话一样，但标注工作量大大减少。 PromptDialog自动将流程转换为RASA stories和代码（开源），设计者可以在自己的本地运行环境中训练和测试代码。
 
 ![cloud_design.png](/assets/images/cloud_design/cloud_design.jpg)
 
-The editing environment offers a low-code user interface, enabling you to quickly design and configure FAQ and multi-turn conversations. You can utilize a range of tools and features to define conversation flows, set response logic, manage intents and entities, etc.  Whether you're developing new dialogue flows or optimizing existing ones, our editing environment will help.
+编辑环境提供低代码用户界面，使您能够快速设计和配置常见问题解答和多轮对话。 您可以利用一系列工具和功能来定义对话流、设置响应逻辑、管理意图和实体等。无论您是开发新的对话流还是优化现有的对话流，我们的编辑环境都会有所帮助。
 
-Upon the completion of editing, PromptDialog allows you to deploy the model to run in your own environment. This provides you with greater flexibility and control, enabling customization and integration of the chatbot with your existing systems. You can run the model in a local environment, achieving faster response times and maintaining data privacy.
+编辑完成后，PromptDialog允许您部署模型以在您自己的环境中运行。这为您提供了更大的灵活性和控制力，支持自定义聊天机器人并将其与您现有的系统集成。您可以在本地环境中运行模型，从而实现更快的响应时间并维护数据隐私。
 
-Please refer to the detailed tutorials for FAQ construction and dialog flow design.
-- [FAQ](/docs/tutorial/faq/)
-- [Dialog Flow Design](/docs/tutorial/flow/)
+FAQ构建和对话流程设计请参考详细教程。
+- [常见问题解答](/docs/tutorial/faq/)
+- [对话框流程设计](/docs/tutorial/flow/)

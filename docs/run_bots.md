@@ -6,148 +6,95 @@ has_children: false
 ---
 {: .no_toc .header }
 
-After successfully creating an account, you can start designing your chatbot immediately. There are two ways to train and test your design. You could create the local running environment as illustrated below, which packaged everything for you and allows you to communicate with PromptDialog to run and test your bot.  This is a preferred option as it supports many new features that RASA does not have.  You could also download the generated RASA code and run it in your own RASA environment.  If you prefer a complete cloud solution that design, train, and run the bot all on cloud, please contact us [info@promptai.us](info@promptai.us).  We have a complete cloud solution. 
+成功创建帐户后，您可以立即开始设计聊天机器人。有两种方法可以训练和测试您的设计。
 
+- 云端: 这是首选选项，因为它支持RASA不具备的许多新功能。您还可以下载生成的RASA代码（它启用DIET和TEDPolicy作为默认训练选项）并在您自己的RASA环境中运行它。
+- 本地: 您可以创建如下所示的本地运行环境，它为您打包了所有内容，并允许您与PromptDialog进行通信以运行和测试您的机器人。如果您更喜欢在本地设计、训练和运行机器人的完整云解决方案，请联系我们[info@promptai.cn](info@promptai.cn)。
 
-## Local Running Environment (LRE)
-The local running environment uses a docker implementation that packages RASA 3.2.0 and an agent that communicates between PromptDialog Cloud and the local RASA environment.   PromptDialog Cloud manages all aspects of your designs and the local RASA environment is in charge of training the model.
+##  本地运行环境 (LRE)
+本地运行环境使用打包RASA 3.2.0的docker实现以及在PromptDialog Cloud和本地RASA环境之间通信的代理。PromptDialog Cloud管理设计的各个方面，本地RASA环境负责训练模型。
 
 ![03-local-running-env.png](/assets/images/local_running_env/03-local-running-env.png)
 
-### Create the first agent
-The local machine shall meet the minimum system requirements:
-
+### 创建第一个代理
+本地机器应满足最低系统要求：
 ```text
-OS         :Linux/Mac OS
-RAM        :At least 8GB
-GPU        :CUDA 11.7 or newer(Optional)
-Disk       :Space: At least 32GB available
-Docker Env :20.10.6 or newer
+操作系统   ：Linux/Mac操作系统
+内存      ：至少8GB
+GPU       ：CUDA 11.7 或更高版本（可选）
+磁盘      ：空间：至少32GB可用
+Docker环境：20.10.6 或更高版本
 ```
+- [Docker是什么？](https://www.docker.com/)
+- [安装Docker](https://docs.docker.com/get-docker/)
 
-- [What id Docker?](https://www.docker.com/)
-- [Install Docker](https://docs.docker.com/get-docker/)
-
-Click `Local Running Environment`-`Manage Agents` on the upper right corner.  It will pop up a window where you can add your agent.  Click `+Agent` and then `Install agent`.  You  will see the following content.
+点击右上角`本地运行环境`-`管理代理`。 它将弹出一个窗口，您可以在其中添加代理。单击“+代理”，然后单击“安装代理”，您将看到以下内容。
 ![00-local-running-env.png](/assets/images/local_running_env/00-local-running-env.png)
 
-Or click `Please install your own local agent to test your bot.` [If you can see this notification]
+或者单击“请安装您自己的本地代理来测试您的机器人。”[如果您可以看到此通知]
 
 ![01-local-running-env.png](/assets/images/run_bots_install_agent_2.jpg)
 
-During installation and the following use, please make sure the local machine has network access to the Prompt Dialog service.
+在安装和后续使用过程中，请确保本机能够通过网络访问Prompt Dialog服务。
 
-- Allow network access to https://app.promptai.us at port: 443
+- 允许网络访问 https://app.promptai.cn 端口：443
 
-Please execute the installation command shown in the pop-up window according to the operating system of your local machine:
+请根据您本地机器的操作系统执行弹窗中显示的安装命令：
 ```shell
 curl -o install_agent.sh 'https://app.promptai.us/rpc/install/install_agent.sh?key=your_config' && chmod +x install_agent.sh && ./install_agent.sh install
 ```
-Note: The installation is often related to the network and firewall set up, please be patient. If you need help, please contact us at [info@promptai.us](info@promptai.us).`
+注意：安装往往与网络有关，请耐心等待。如果您需要帮助请通过 [info@promptai.cn](info@promptai.cn) 联系我们。
 
-After the installation is successful, enter the "Manage Agents" page to see the installed Agent
+安装成功后，进入“管理Agents”页面可以看到已安装的Agent
 ![02-local-running-env.png](/assets/images/local_running_env/02-local-running-env.png)
 
-All set! Enjoy all the features in PromptDialog Cloud!
+安装完成，可以使用PromptDialog Cloud中的所有功能！
 
-## What does an agent do?
-The following section introduces the details of agents. You need not to read this part to run chatbots in PromptDialog successfully. 
+## 什么是Agent？
+以下部分介绍代理的详细信息,您无需阅读本部分即可在PromptDialog中成功运行聊天机器人。
 
-<!---
 - 接收训练/部署任务
 - 上传任务执行步骤、结果
-- 上传训练好的模型，便于负载均衡时不用重复训练
 - 接收和响应对话请求
 - 创建、停止和升级AI容器
---->
 
-- Receive training tasks
-- Train Rasa models
-- Start, run, and stop bots
-- Receive and respond to conversation requests
-- Bookkeep trained models so that there is no need to repeat training
 
-Agents will only create and operate in the following directory of your machine. 
+代理只会在您机器的以下目录中创建和操作。
 
-- OS:  Linux / MacOS
-- location: $HOME/zbot
+- 操作系统：Linux / MacOS
+- 位置    ：$HOME/zbot
 
-Please do not modify any file in the above drectory. 
+请不要修改上述目录中的任何文件。
 
-<!--
-- 数据与系统运行有关，请勿操作。否则可能导致系统无法正常工作。
-- 数据、目录结构可能会变化，同时里面的数据可能会被服务端使用。
 
-Example:
-
-```shell
-.
-└── .promptai
-    ├── .agent
-    │   ├── a1 ## 训练任务，目录名称为内部账户名称
-    │   ├── download ## 训练数据目录
-    │   ├── pqdata ## 缓存数据
-    │   │   ├── reporter.published.project ## 发布项目的缓存
-    │   │   ├── reporter.task.result ## 任务执行结果缓存
-    │   │   └── reporter.task.step ## 任务执行步骤缓存
-    │   └── published_project.conf ## 发布的项目数据
-    └── .ai  ## AI 数据目录
-        ├── log ## 日志目录
-        │   └── a1 ## 目录名称为内部账户名称
-        │       ├── debug ## 调试的日志
-        │       ├── p_cm6gp9vx6igw ## 发布项目的日志 名称为项目ID，可能会有多个
-        │       ├── p_cm6j0rozjncw
-        │       └── p_cmaamgq4bsao
-        ├── model ## 模型文件目录
-        │   └── a1 ## 目录名称为内部账户名称
-        │       ├── debug ## 调试的模型
-        │       ├── p_cm6gp9vx6igw ## 发布项目的模型 名称为项目ID，可能会有多个
-        │       ├── p_cm6j0rozjncw
-        │       └── p_cmaamgq4bsao
-        └── train ## 训练数据目录
-            └── a1 ## 目录名称为内部账户名称
-                ├── debug ## 调试的训练数据
-                ├── p_cm6gp9vx6igw ## 发布项目的训练数据 名称为项目ID，可能会有多个
-                ├── p_cm6j0rozjncw
-                └── p_cmaamgq4bsao
-```
--->
-
-After the agent is successfully installed, the `install_agent.sh` script will be created in the `$HOME/zbot` directory to upgrade and uninstall the Agent.
-
+Agent安装成功后，会在“$HOME/zbot”目录下创建“install_agent.sh”脚本，用于升级和卸载Agent。
 ```shell
 $HOME/zbot/install_agent.sh
 ```
 
-The agent implementation is done by Docker, including two images and multiple containers.
+Agent的实现是由Docker完成的，包括两个镜像和多个容器。
 
-- Docker Images
+- Docker 镜像
 
-| Name  | Image                        | Description                             |
-|:------|:-----------------------------|-----------------------------------------|
-|  AI   | promptai/zbotai:release      | AI model                                |
-| Agent | promptai/zbot-agent:latest   | Agent service，AI container management  |
-
-- Docker Containers
-
-| Name  | Container    | Description                                                              |
-|:------|:-------------|--------------------------------------------------------------------------|
-|  AI   | zbot_a1_xxxx  | "xxxx" is the selected models for debugging. There may be more than one |
-| Agent | zbot_agent   | Agent service, manage AI models, there is only one                       |
-
-<!---
-| Name  | Container    | Description                                                      |
-|:------|:-------------|-------------------------------------------------------------|
-|  AI   | zbot_a1_xxx  | "xxx"为调试的模型或具体的项目，可能有多个，与发布的项目数量有关       |
-| Agent | zbot_agent   | Agent服务，管理AI模型 ，有且仅有一个                             |
---->
+| 名称  | 镜像                        | 解释                             |
+|:------|:-----------------------------|----------------------------------|
+|  AI   | registry.cn-hangzhou.aliyuncs.com/promptai/zbotai:release      | 人工智能模型                              |
+| Agent | registry.cn-hangzhou.aliyuncs.com/promptai/zbot-agent            latest   | 代理服务，对AI容器进行管理 |
 
 
-## Run in Rasa
+- Docker 容器
 
-When developers need to debug and verify the designed flows, they can also use the `Download Rasa File` function to download the generated RASA code in their own RASA set up.  However, a few useful features from PromptDialog Cloud will be missing.  
+| 名称   |     容器     | 解释
+|:------|:-------------|---------------------------------------------------|
+|  AI   | zbot_a1_xxxx | "xxxx"为调试或发布的模型，可能有多个，数量与发布的项目有关 |
+| Agent | zbot_agent   | 代理服务, 用于管理AI模型, 这只会有一个                 |
 
-### Features only available in PromptDialog Cloud
+
+## 在Rasa中运行
+
+当开发人员需要调试和验证设计的流程时，他们还可以使用“下载Rasa文件”功能在自己的RASA设置中下载生成的RASA代码。 但是，PromptDialog Cloud 中的一些有用功能将丢失。
+
+### 仅在 PromptDialog Cloud 中可用的功能
 
 <!---
 | Features                  | Prompt Dialog | Run In Rasa |
@@ -166,32 +113,33 @@ When developers need to debug and verify the designed flows, they can also use t
 
 --->
 
-| Features                  | Prompt Dialog | Run In Rasa |
-|---------------------------|--------------|-------------|
-| Chat history              |         ✅   |       ❌    |
-| Dashboard                 |         ✅   |       ❌    |        
-| Debug chatbot             |         ✅   |       ❌    |
-| Multimodal response       |         ✅   |       ❌    |
-| Release                   |         ✅   |       ❌    |
-| User feedback             |         ✅   |       ❌    |
+| 特点         | Prompt Dialog| Run in Rasa |
+|-------------|---------------|------------|
+| 聊天记录     |       ✅      |     ❌     |
+| 仪表板       |       ✅      |     ❌     |
+| 调试聊天机器人|       ✅      |     ❌     |
+| 多个机器回复  |       ✅      |     ❌     |
+| 发布         |       ✅      |     ❌     |
+| 用户反馈     |       ✅      |     ❌     |
 
-### Rasa file download
 
-Click `Download RASA File` on the top right corner.  The download box will pop up with the following options:
+### 下载Rasa文件
 
-* Download current module, download the current dialog flow,
-* Download selected modules, select a collection of multiple dialog flows under the current project,
-* Download all, check all dialog flow diagrams under the current project.
+单击右上角的“下载 RASA 文件”。 将弹出下载框，其中包含以下选项：
+
+* 下载当前模块，下载当前对话框流程，
+* 下载选定的模块，选择当前项目下多个对话流的集合，
+* 下载全部，查看当前工程下的所有对话框流程图。
 
 ![download-rasa](/assets/images/download_rasa_file_current.png)
 
-- When the current project has a flow diagram containing error nodes, it will be classified into `Unavailable Modules` in the pop-up box.  Move the mouse over the module to see the number of error messages. The link next to the module name can lead to the corresponding flow diagram for modification.
+- 如果当前项目有包含错误节点的流程图时，会在弹出框中将其分类为“不可用模块”，将鼠标移到模块上可查看错误消息的数量。 模块名称旁边的链接可以指向相应的流程图进行修改。
 
 ![download_rasa_file_selected.png](/assets/images/download_rasa_file_selected.png)  
 
-### Rasa environmental preparation
+### 准备Rasa环境
 
-Local installation requires your local python version 3.8 or above (3.8.10 is recommended), and the following dependent packages need to be installed through pip
+本地安装需要你本地的python版本3.8以上（推荐3.8.10）并且需要通过pip安装以下依赖包
 
 ```text
 rasa==3.2.0
@@ -200,32 +148,27 @@ transformers==4.24.0
 jsonpath==0.82
 ```
 
-After installation, enter 'rasa init' on the command line to verify as shown in the figure.
+安装完成后在命令行输入‘rasa init’进行验证如图。
 
 ![rasa-env](/assets/images/dev_guide/download-rasa-env.png)
 
-### Run Rasa
-Step 1: Unzip the downloaded Rasa file in your Rasa environment:
+### 运行RASA
+步骤 1：在 Rasa 环境中解压下载的 Rasa 文件：
 
 ![download-rasa-debug-1](/assets/images/dev_guide/download-rasa-debug-1.jpg)
 
-Step 2: Train models.
-
+第 2 步：训练模型。
 ```shell
-# train model 
+
+# 训练模型
 rasa train
 
-# Start actions if necessary
+# 必要时启动操作[如果包含Webhook或自定义的Action代码]
 rasa run actions
 
-# Open another command window for run the bot 
+# 打开另一个命令窗口来运行机器人
 rasa shell
 ```
 
-Step 3: Observe the output and verify, as shown in the figure.
-   
+步骤3：观察输出并验证，如图所示。   
 ![download-rasa-debug-2](/assets/images/dev_guide/download-rasa-debug-2.jpg)
-
-<!---
-1、The current version does not support built-in variables
--->
