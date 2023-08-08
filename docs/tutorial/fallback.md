@@ -7,65 +7,62 @@ parent: Developer's Guide
 
 ## What is Fallback?
 
-Fallback PromptDialog refers to a backup plan used when the system encounters inputs it cannot understand or process. It helps the system deal with the following situations:
+Fallback PromptDialog 是指当系统遇到无法理解或处理的输入时使用的备份计划。 它帮助系统处理以下情况：
 
-- When users ask unrelated questions (Dialog flows & Faq not include the input), the system responds with something like "I don't know."
-- If the user's input is unclear or ambiguous, the system asks for more specific information.
-- When the system is uncertain about a response, it may indicate its uncertainty.
-- In the case of technical issues or errors, the system explains the problem to the user and may offer solutions.
+- 当用户提出不相关的问题（对话流程和常见问题解答不包括输入）时，系统会回答“我不知道”之类的内容。
+- 如果用户的输入不清楚或不明确，系统会要求提供更具体的信息。
+- 当系统对响应不确定时，它可能表明其不确定性。
+- 如果出现技术问题或错误，系统会向用户解释问题并可能提供解决方案
 
-## PromptAI supports Fallback mode
-In PrompttAI, three methods are supported as shown in the figure below
+## PromptAI 支持 Fallback 模式
+PrompttAI中支持三种方法，如下图所示
 - webhook
 - action
-- talk2bits
+- Talk2bits
 
 ![fallback-mode](/assets/images/tutorial/fallback-mode.jpg)
-
-## Fallback with webhook
-PromDialog also support to hand over the default reply to a third-party API for processing
+## 使用 Webhook Fallback
+PromDialog还支持将默认回复交给第三方API处理
 
 - See [Webhook-Fallback](docs/webhook/03-webhook/)
 
-## Fallback with action
-Action fallback
+## 使用 Action Fallback
+Action Fallback
 
-## Fallback with Talk2Bits
-PrompDialog supports one-click access to Talk2bits to process default replies, making the conversation experience more streamlined
+## 使用 Talk2Bits Fallback
+PrompDialog支持一键访问Talk2bits处理默认回复，让对话体验更加流畅
 - [Knowledge of Talk2bits](/docs/knowledge_base/)
 
-For some texts, documents and Web materials, you can build a knowledge base through Talk2Bits quick reading, and you can complement each other with PromptAI by connecting to a platform like Talk2Bits.
-This article will explain how to integrate Talk2Bits into the Fallback.
+对于一些文本、文档和网络资料，可以通过Talk2Bits快速阅读构建知识库，并且可以通过连接Talk2Bits这样的平台与PromptAI互补。
+本文将解释如何将 Talk2Bits 集成到 Fallback 中。
 
-* Tips: Other platforms can be accessed through Webhook, please contact us if you have any questions or requests.
+* 温馨提示：其他平台可以通过Webhook访问，如果您有任何疑问或要求，请联系我们。
 
 ### Talk2Bits
 
-Talk2Bits can automatically generate configuration codes after adding content, not only importing the web page to generate Chatbot directly in the lower right corner, but also enabling direct conversations by scanning codes with mobile phones.
+Talk2Bits可以在添加内容后自动生成配置码，不仅可以导入网页直接在右下角生成Chatbot，还可以通过手机扫码直接对话。
 ![01-default-reply.jpg](/assets/images/default_reply/01-default-reply.jpg)
 
-* For more details, please visit: https://talk2bits.com/
-* Chatbot introduction: https://talk2bits.com/app/publish
+* 欲了解更多详情，请访问：https://talk2bits.com/
+* 聊天机器人介绍：https://talk2bits.com/app/publish
 
-### Example
+### 例子
+接下来，我们将演示如何将 Fallback 连接到 Talk2Bits。
 
-Next, we will demonstrate how to connect the Fallback to Talk2Bits.
+### Talk2Bits 代码
 
-### Talk2Bits Code
-
-After logging in to Talk2Bits, click "Chatbot" to open the code pop-up window, then click the "Copy" button or copy manually to get the imported code.![02-default-reply.jpg](/assets/images/default_reply/02-default-reply.jpg)
+登录Talk2Bits后，点击“Chatbot”打开代码弹窗，然后点击“复制”按钮或手动复制即可获取导入的代码。![02-default-reply.jpg](/assets/images/default_reply/02-default-reply.jpg)
 
 
-### Config Fallback with Talk2bits
+### 配置使用 Talk2bits Fallback
 
-In the project "Overview" - "Fallback" switch to "Talk2Bits" and paste the code obtained in the previous step, and finally click Save.
+在项目“Overview”-“Fallback”中切换到“Talk2Bits”并粘贴上一步获得的代码，最后点击Save。
 ![03-default-reply.jpg](/assets/images/default_reply/03-default-reply.jpg)
 
-### Test
-
-Respond to user input via Talk2Bits.
+### 测试
+通过 Talk2Bits 响应用户输入。
 ![04-default-reply.jpg](/assets/images/tutorial/fallback_talk2bits_result.jpg)
 
-## Fallback with Default
-When the above three methods fail, we will use the default method to handle the fallback, which is the text filled in in the figure below.
+## 默认 Fallback
+当以上三种方法失败时，我们会使用默认的方法来处理Fallback，也就是下图中填写的文字。
 ![fallback-text](/assets/images/tutorial/fallback-text.jpg)
