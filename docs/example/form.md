@@ -1,10 +1,9 @@
 ---
 layout: en
-title: Create Form
+title: 创建表单
 parent: Video Tutorials
 nav_order: 2
 ---
 
-Suppose we would like to collect order information of purchasing fruits: The type of fruits and the pounds of fruits.  This information collection process can be implement by a RASA form.  PromptDialog provides a visual tool to build this form without programming. 
-
+假设我们要收集购买水果的订单信息：水果的种类和水果的磅数。 该信息收集过程可以通过RASA表单来实施。PromptDialog提供了一个可视化工具来构建此表单，无需编程。
 <video src="/assets/images/example/video/form.mp4" width="100%" height="520px" controls="controls"></video>

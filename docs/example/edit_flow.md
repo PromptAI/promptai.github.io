@@ -1,10 +1,10 @@
 ---
 layout: en
-title: Edit Flows 
+title: 编辑对话流图
 parent: Video Tutorials
 nav_order: 4
 ---
 
-PromptDialog provides tools to quickly edit dialog flows.   For example, it supports various kinds of templates, predefined entities, and editing functions to improve the design efficency.  The following video shows one example of using recycle bin to delete and insert nodes.  
+Prompt Dialog提供了快速编辑对话流的工具。 例如，它支持各种模板、预定义实体和编辑功能，以提高设计效率。
 
 <video src="/assets/images/example/video/edit_skills.mp4" width="100%" height="520px" controls="controls"></video>

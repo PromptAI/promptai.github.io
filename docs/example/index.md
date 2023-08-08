@@ -1,12 +1,11 @@
 ---
 layout: en
-title: Video Tutorials
+title: 视频教程
 nav_order: 4
 has_children: true
 ---
-# Video Tutorials
+# 视频教程
 {: .no_toc .header }
 
-We provide the following examples to guide you to quickly understand and use the dialogue services provided by Prompt AI.
+我们提供以下示例来指导您快速了解和使用Prompt Dialog提供的对话服务。
 
-This page shall be removed。 Not needed. 

@@ -1,6 +1,6 @@
 ---
 layout: en
-title: Knowledge Base
+title: 知识库
 nav_order: 3
 ---
 PromptDialog中有两种知识库：[FAQ](https://doc.promptai.us/docs/tutorial/faq/)和以文本、word、pdf、html等形式存储的非结构化内容。
