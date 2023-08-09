@@ -1,7 +1,7 @@
 ---
 layout: en
 title: 跳转
-parent: Developer's Guide
+parent: 使用指南
 nav_order: 8
 ---
 <!-- 下图是`goto`的简单例子，更多例子等待您的探索。 -->

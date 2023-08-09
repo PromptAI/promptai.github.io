@@ -3,7 +3,7 @@ layout: en
 title: 项目发布
 nav_order: 2
 parent: 发布
-grand_parent: Developer's Guide
+grand_parent: 使用指南
 ---
 
 ## 选择模块发布

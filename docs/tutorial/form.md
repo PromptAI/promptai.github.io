@@ -1,7 +1,7 @@
 ---
 layout: en
 title: 表单
-parent: Developer's Guide
+parent: 使用指南
 nav_order: 7
 ---
 在PromptDialog中，Form是一个从用户收集一组信息的组件。 该信息将存储在槽中。 在下面的示例中，机器人向用户收集水果类型和数量信息，并在完成后与用户确认。 该信息收集对话可以通过具有两个必需槽的表单来实现：水果类型和数量。

@@ -1,7 +1,7 @@
 ---
 layout: en
 title: 同义词
-parent: Developer's Guide
+parent: 使用指南
 nav_order: 19
 spliter: true
 ---

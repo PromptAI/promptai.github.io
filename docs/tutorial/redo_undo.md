@@ -1,7 +1,7 @@
 ---
 layout: en
 title: 重做与撤销
-parent: Developer's Guide
+parent: 使用指南
 nav_order: 22
 ---
 有时我们会错误地删除一个或多个节点。 撤消/重做将帮助我们回到上一步。 假设我们有以下对话流程。

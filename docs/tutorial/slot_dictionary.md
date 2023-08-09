@@ -1,7 +1,7 @@
 ---
 layout: en
 title: 字典
-parent: Developer's Guide
+parent: 使用指南
 nav_order: 18
 ---
 当我们在进行实体识别来填充槽位时，有时可以预先定义实体的名称。 在这种情况下，字典可以促进实体识别。
