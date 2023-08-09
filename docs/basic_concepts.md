@@ -1,77 +1,78 @@
 ---
 layout: en
-title: Basic Concepts
+title: 基本概念
 nav_order: 7
 ---
-## Intent
+## 意图
 
-`User`:  I want to book a ticket to Boston on July 4th. 
+`用户输入`:  我想预订7月4日飞往上海的机票。
 
-`Intent`: Booking Ticket.  
+`意图`: 预定机票
 
-There are various ways to express a user’s intent to book a ticket from one place to another.  They can be classified as intent declared by a designer as “Booking Ticket.”  In order to help RASA or LLMs to understand “Booking Ticket,” it was suggested to give a few examples.  Certainly the more (diverse), the better. 
-Intent Example: 
-* I plan to fly to Boston on Independence Day.
-* Could you help me check the flights from Los Angeles to Boston in July? 
+有多种方式可以表达用户预订从一个地方到另一个地方的机票的意图。 它们可以被归类为设计师宣称的“预订票”意图。 为了帮助RASA或LLM理解“预订票”，建议举几个例子。 当然越多（多样化）越好。
+意图示例：
+* 我计划在这周日飞往上海。
+* 你能帮我查一下7月份从杭州飞往上海的航班吗？
 
-## Slot
-In order to query the flight database, it is necessary to extract the flight information that a user is checking.  The information is called slots, each consisting of type, name and value. For example, at least three slots are needed for checking flights: Date, Departure city, Arrival city.  Slot filling is looking for specific pieces of information that can be named entities (e.g., the city name) or other things (e.g., a piece of text).  Slot is also referred as variable in PromptDialog.  
+## 变量
+为了查询航班数据库，需要提取用户正在查看的航班信息。 这些信息称为槽，每个槽由类型、名称和值组成。 例如，查询航班至少需要三个时段：日期、出发城市、到达城市。 槽填充正在寻找可以命名实体（例如城市名称）或其他事物（例如一段文本）的特定信息。 Slot 在 PromptDialog 中也称为变量。
 
-## Entity
-Entity is a 'thing' that has names, like people, places, products etc.  These things can be used to fill slots or just left alone. 
+## 实体
+实体是具有名称的“事物”，例如人、地点、产品等。这些事物可以用来填充槽位或单独放置。
+比如：`水果类型`的变量填充了`苹果`,即变量的具体的值。
 
-## Slot Filling
-The value of a slot (variable) can be filled anywhere during a conversation. It can be extracted from user input or set manually. The followings are several ways to do slot filling.
+## 变量填充
+变量的值可以在会话期间的任何位置填充,它可以从用户输入中提取或手动设置。以下是进行变量填充的几种方法：
 
-### 1. Entity Recognition
-Entity recognition is the most common method in slot filling.  PromptDialog has the following three approaches to do entity recognition:
+### 1.实体识别
+实体识别是槽位填充中最常用的方法。 PromptDialog有以下三种方式进行实体识别：
 
-* A set of predefined entities are included, such as date, number, telephone, and ordinal words, eliminating the need of annotation, training and recognition.  
-* PromptDialog supports entity recognition models like DIET form RASA which requires a designer to provide a set of training examples to recognize the entities.  The accuracy of entity recognition can be improved by providing a variety of utterances and displaying different entity words in example sentences. It is well known that the accuracy varies as there might not be enough training data available.
-* PromptDialog is going to soon introduce a large language model based (e.g., chatGPT) entity recognition method to improve intent classification and entity recognition. 
+* 包含一组预定义实体，例如日期、数字、电话和序数词，无需注释、训练和识别。
+* PromptDialog支持实体识别模型，例如DIET form RASA，它需要设计者提供一组训练示例来识别实体。 通过提供多种话语并在例句中显示不同的实体词，可以提高实体识别的准确性。 众所周知，由于可能没有足够的训练数据，准确性会有所不同。
+* PromptDialog即将推出基于大型语言模型（例如chatGPT）的实体识别方法，以改进意图分类和实体识别。
 
-### 2. Whole Utterance
-The entire user utterance is used to fill a slot.   A common scenario is to collect user feedback which requires using the whole utterance, rather than extracting a specific phrase from it. It should be noted that although we do not care about the specific values extracted, we still need to add different examples to ensure that the model performs intent classification accurately and understands that the current utterance is going to be used for slot filling. 
+### 2. 整个话语
+整个用户话语用于填充槽。 一个常见的场景是收集用户反馈，这需要使用整个话语，而不是从中提取特定短语。 需要注意的是，虽然我们不关心提取的具体值，但我们仍然需要添加不同的示例，以确保模型准确地进行意图分类并理解当前的话语将用于槽填充。
 
-### 3. User Defined Value
-In this case, a specific value is selected to fill slots.  For example, when booking air tickets, a user may be asked if a window seat is preferred or not.  The value of Slot ‘windows’ shall be ’ true’ or ‘false.‘  No matter whether the user says “Yes” or “I want to sit next to window”, the ‘windows’ slot shall be set to ’True.‘  
+### 3. 用户定义值
+在这种情况下，选择特定值来填充槽。 例如，在预订机票时可能会询问用户是否喜欢靠窗的座位。 插槽“windows”的值应为“true”或“false”。无论用户是否说“是”或“我想坐在窗户旁边”，“windows”插槽应设置为“True”。
 
-### 4. Reset
-Sometimes a slot value needs to be reset.   For example, a user might want to clear the previously entered information, or assign the slot an initial value at the beginning of a conversation.  It can also be used when filling different slots of the same entity type, such as numbers: Fill in the order number when an order identifier is given, and fill in the phone number when a phone number is provided. 
+### 4.重置
+有时需要重置槽值。 例如，用户可能想要清除先前输入的信息，或者在对话开始时为槽分配初始值。 也可以在填写同一实体类型的不同槽位时使用，例如数字：给出订单标识符时填写订单号码，提供电话号码时填写电话号码。
 
-## Bot Response
-The system will send different responses according to user utterance. PromptDialog currently supports five kinds of responses:
-1. Text
-2. Image
-3. Attachment
+## 机器回复
+系统会根据用户的话语发送不同的响应。 PromptDialog目前支持五种响应：
+1. 文字
+2. 图片
+3. 附件
 4. Webhook
 5. Action
 
+## 列表(模板) 
 
-## Template 
+### 意图列表 
+意图列表的存在是为了重用意图。对话设计中有一些标准意图，例如确认、否认和赞赏。 重复构建相同类型的意图既耗时又容易出错。 Intent模板就是为了解决这个问题而设计的。 我们可以保存一个要重复使用的意图作为模板并将其添加到意图列表中。
 
-### Intent Template 
-The intent template exists for the purpose of reusing intents. There are a few standard intents in conversation design, such as confirmation, denial and appreciation. Repeatedly constructing the same kind of intents is time consuming and error prone. Intent template is here to solve this problem. We can save an intent to be reused as a template and add it to the intent list. 
+### 变量列表
+出于同样的原因，存在不同项目中常用的标准实体。 系统中存储了一组预定义实体以供快速参考。
 
-### Entity Template
-For the same reason, there are standard entities that are commonly used accross different projects.  A set of predefined entities are stored in the system for quick references.  
+### 回答列表
+回答列表的存在是为了重用响应。 我们经常在对话中遇到重复的回复，例如再见、调用同一个 webhook、以及感谢。 我们可以将要重复使用的响应保存为响应模板并将其添加到回列表中。 当我们需要在项目的其他地方使用这个响应时，我们可以直接引用保存的响应。 强烈建议您尽可能使用回列表。
 
-### Response Template
-The response list exists for the reuse of responses. We often encounter repeated responses in conversations, such as goodbye, calling the same webhook, and thanks.  We can save the response to be reused as an response template and add it to the response list. When we need to use this response elsewhere in the project, we can directly refer the saved response.  You are strongly recommended to use the response list as much as possible. 
+## 经常问的问题 (FAQ) 
+用户可能就特定主题提出的典型问题列表。 每个常见问题解答元组都包含三个组成部分：（问题、类似问题、答案）。
 
-## Frequently Asked Questions (FAQ) 
-A list of typical questions that users might ask regarding a particular subject.  Each faq tuple has three components: (question, similar questions, answer).
+PromptDialog 通过三种方式支持常见问题解答：
+* RASA 原生常见问题解答，使用 RASA 自己的例程来回答问题。 在这种情况下，用户需要为每一个问题给出几个相似的问题（越多越好），以便RASA能够通过学习正确识别出正确的问题。
+* ChatGPT/GPT4 启用检索增强生成 (RAG) 来回答问题。 PromptDialog 采用嵌入和检索方法来显着提高准确性。 如果用户没有提供类似的问题，我们建议采用这种方法。 然而，由于用户需要访问 OpenAI/ChatGPT，因此相关成本很小。
+* 具有对比学习的定制 BERT 模型。 PromptDialog还提供了自己的模型，可以本地部署，其性能介于RASA FAQ和ChatGPT之间（接近ChatGPT）。 它需要训练示例。
 
-PromtpDialog supports FAQs in three ways:
-* RASA native FAQs that use RASA’s own routine to answer questions.  In this case, a user is required to give a few similar questions (the more the better) for each question so that RASA can correctly identify the correct one through learning. 
-* ChatGPT/GPT4 enabled retrieval augmented generation (RAG) to answer questions.  PromptDialog employed an embedding and retrieval approach to dramatically improve accuracy.  This is an approach we recommend if users do not provie similar questions. However, there is small cost associated as the users need to access OpenAI/ChatGPT. 
-* Customized BERT model with contrastive learning.  PromptDialog also provides its own model that can be deployed locally whose performance is between RASA FAQ and ChatGPT (close to ChatGPT).  It needs training examples. 
+## 知识库
+除了FAQ之外，PromptAI还可以将CSV、PDF、Doc、Text、HTML等多种形式的企业文档转化为一个知识库，并利用检索增强生成（RAG）直接基于这些非结构化文档回答问题。 该功能由[talk2bits.com](talk2bits.com)支持，并且可以通过PromptDialog与RASA集成。
 
-## Knowledge Base
-In addition to FAQs, PromptAI can turn enterprise documents of various forms including CSV, PDF, Doc, Text, and HTML into one knowledge base and employ retrieval augmented generation (RAG) to answer questions directly based on these unstructured documents. This function is supported by [talk2bits.com](talk2bits.com) and can be integrated with RASA via PromptDialog. 
+## 信息收集
 
-## Form
-Form is used to collect multiple pieces of information like ticket booking, hotel reservation, order query, etc.  In PromptDialog, only a few configurations are needed to complete the design of a form, which was once quite complex: 
-* `Slots`  The slot list declares several slots that the form needs to collect, how the bot asks about these slots’ value, and how to fill slots from the user reply. The bot will ask the user in sequence until all slots are filled. 
-* `Interrupts` Users may not answer in the way we expect. If the user says “I don’t want to continue ”, the form filling will exit.
-* `Confirm` When all the slots are filled out, the form will ask for a confirmation and then complete.  
+信息收集用于收集机票预订、酒店预订、订单查询等多项信息。在PromptDialog中，只需要进行一些配置就可以完成曾经相当复杂的表单设计：
+* `信息列表` 槽列表声明了表单需要收集的几个槽，机器人如何询问这些槽的值，以及如何从用户回复中填充槽。 机器人将按顺序询问用户，直到所有槽位都被填满。
+* `用户其他请求` 用户可能不会按照我们期望的方式回答。 如果用户说“我不想继续”，则表单填写将退出。
+* `收集成功` 当所有栏位都填写完毕后，表格将要求确认然后完成。
