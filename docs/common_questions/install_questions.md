@@ -15,7 +15,7 @@ nav_order: 1
 ![01-install-questions.png](/assets/images/install_agent.jpg)
 
 ### 我有多台服务器/电脑，如何安装？
-代理只能安装在一台计算机上, 如果您有多台计算机则需要创建相应数量的代理并分别安装在每台计算机上。
+如果您有多台计算机则需要创建相应数量的代理并分别安装在每台计算机上。
 
 ### 如何删除代理?
 如果代理没有安装成功，可通过“管理代理”管理面板进行删除。
@@ -27,8 +27,8 @@ nav_order: 1
 ### 如何升级代理？
 
 - 登录安装了agent的机器
-- 在 shell 中执行 `~/zbot/install_agent.sh update`
-- 输入‘y’确认升级【更新期间服务将暂时不可用】
+- 在 shell 中执行 `~/zbot/install_agent.sh upgrade`
+- 输入`y`确认升级【更新期间服务将暂时不可用】
 - 等待升级完成
 
 ```shell
@@ -46,7 +46,7 @@ xxxxx
 ### 如何在服务器中卸载代理？
 
 - 登录安装Agent的机器
-- 在shell中执行'promptai uninstall'
+- 在shell中执行`promptai uninstall`
 - 输入`y`确认卸载
 - 等待卸载完成
 
