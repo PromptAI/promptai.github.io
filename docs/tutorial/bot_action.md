@@ -1,7 +1,7 @@
 ---
 layout: en
 title: Customized Action
-parent: Developer's Guide
+parent: 使用指南
 nav_order: 9
 ---
 

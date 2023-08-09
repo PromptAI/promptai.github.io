@@ -3,7 +3,7 @@ layout: en
 title: 项目设置
 nav_order: 1
 parent: 发布
-grand_parent: Developer's Guide
+grand_parent: 使用指南
 ---
 项目设置位于左侧导航窗格中的项目工具菜单下。
 

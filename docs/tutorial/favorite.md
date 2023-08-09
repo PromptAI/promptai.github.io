@@ -1,7 +1,7 @@
 ---
 layout: en
 title: 收藏夹
-parent: Developer's Guide
+parent: 使用指南
 nav_order: 24
 ---
 收藏夹可以帮助您在不同项目之间复制组件。

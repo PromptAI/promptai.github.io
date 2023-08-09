@@ -1,7 +1,7 @@
 ---
 layout: en
 title: 用户意图模版
-parent: Developer's Guide
+parent: 使用指南
 nav_order: 16
 ---
 ## 创建模版

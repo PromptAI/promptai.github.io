@@ -1,7 +1,7 @@
 ---
 layout: en
 title: 智能回复模版
-parent: Developer's Guide
+parent: 使用指南
 nav_order: 17
 ---
 当您有许多机器人响应节点需要使用相同的响应时，强烈建议使用通用响应模板，这可以节省您一些构建时间。

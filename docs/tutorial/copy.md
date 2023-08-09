@@ -1,7 +1,7 @@
 ---
 layout: en
 title: 复制
-parent: Developer's Guide
+parent: 使用指南
 nav_order: 23
 ---
 单击一个节点并从弹出框中选择“复制”。 您也可以使用快捷键“control c”进行复制。 此时节点已成功复制到粘贴板，如图：

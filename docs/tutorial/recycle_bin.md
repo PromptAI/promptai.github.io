@@ -1,7 +1,7 @@
 ---
 layout: en
 title: 回收站
-parent: Developer's Guide
+parent: 使用指南
 nav_order: 21
 ---
 当设计者删除对话流中的某个组件时，系统会将其移至回收站。 设计者可以从回收站中回收它。
