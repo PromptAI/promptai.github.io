@@ -4,97 +4,96 @@ title: Form
 parent: Developer's Guide
 nav_order: 7
 ---
-In PromptDialog, Form is a component that collects a set of information from the user. The information will be stored in slots. In the following example, the bot collects the information of fruit type and quantity from the user, and confirm with the user after completion. This information collection conversation can be implemented by form with two required slots: fruit_type and quantity. 
+在PromptDialog中，Form是一个从用户收集一组信息的组件。 该信息将存储在槽中。 在下面的示例中，机器人向用户收集水果类型和数量信息，并在完成后与用户确认。 该信息收集对话可以通过具有两个必需槽的表单来实现：水果类型和数量。
 
 ```text
-Bot : Hello!
-      What can i do for you?
-User: Hi there! I'd like to order some fruits
+Bot : 你好!
+      我能为你做什么?
+User: 我想买一些水果。
 
-# Collect the type and count of fruit ordered by the user through the Form
-Bot : Perfect! What kinds of fruits would you like to order?
-User: I'd like some apples, please
-Bot : Great! And how much apples would you like to order?
-User: Let's go with 5 apples
+# 通过表单收集用户订购的水果种类和数量
+Bot : 好的，你想购买什么水果呢?
+User: 我要一些苹果。
+Bot : 需要多少水果呢?
+User: 需要5个苹果
 
-Bot : Perfect! I have your order 5 apples.
-User: Thanks
-Bot : You are welcome! I'll prepare your order with 5 apples, fell free to ask!
+Bot : 好的，你需要5个苹果。
+User: 谢谢
+Bot : 不客气！ 我会为您准备 5 个苹果!
 ```
-There are other similar scenarios that cab be handled by Form:
-- Check the weather: Collect the location and time to check the weather conditions in real time.
-- Book air tickets: Book air tickets by obtaining the user's travel time and departure airport.
+表单还可以处理其他类似的场景：
+- 查看天气：收集地点和时间，实时查看天气情况。
+- 预订机票：通过获取用户的出行时间和出发机场来预订机票。
 - ...
 
 
-## How to use Form?
-Next, we will introduce how to create the example of user-ordered fruit mentioned above.
-
-### Create `Fruit`Dialog flow
+## 如何使用表单?
+接下来，我们将介绍如何创建上面提到的用户订购水果的示例。
+### 创建一个“水果”的流程
 ![img.png](/assets/images/form_fruit_create_flow.jpg)
 
-Next, we create a `Bot` node to say hello and a `User` node to show the intent to buy fruit
+接下来，我们创建一个“智能回复”节点来打招呼，并创建一个“用户输入”节点来显示购买水果的意图
 ![img_1.png](/assets/images/form_fruit_create_hello.jpg)
 
-## Create fruit form
-Click the `User` node and select `Form` in the pop-up menu
+## 创建一个表单
+单击`用户`节点并在弹出菜单中选择`表单`
 ![img_3.png](/assets/images/form_fruit_create_form.jpg)
-The name of the Form can be set according to the function, here we fill in `Fruit order`
+表单的名称可以根据功能来设置，这里我们填写`水果订单`
 ![img_2.png](/assets/images/form_fruit_create_form_info.jpg)
 
-Three pieces of information need to be completed after creating `fruit order`
+创建`水果订单`后需要填写三项信息
 ![img_4.png](/assets/images/form_fruit_create_form_success.jpg)
 
-|  Name        | Required | Desc                                                   |
+|  名称        |  是否必填 | 描述                                                   |
 |--------------|----------|--------------------------------------------------------|
-| Slots        |    Yes   | slots that need to be collected                        |
-| Interrupts   |    No    | Possible problems filling the form or exiting the form |
-| Confirm      |    Yes   | After the form runs successfully                       |
+| Slots        |    是   | 需要收集的插槽                        |
+| Interrupts   |    否    | 填写表格或退出表格时可能出现的问题 |
+| Confirm      |    是   | 表单收集成功后                       |
   
 ## Slots
-We need to collect `fruit_type` and `count` from users through Slots, and then explain in detail how to add `fruit_type`
+我们需要通过Slots收集用户的`水果类型`和`数量`，然后详细说明如何添加`水果类型`
 
-Click on the `Slots` node and select `Add Slot` from the pop-up menu
+单击`Slots`节点，然后从弹出菜单中选择`Add Slot`
 ![img_5.png](/assets/images/form_fruit_create_slot.jpg)
 
-In the pop-up Slot window, we need to pay attention to the input `Slot Name`, here fill in the name of the Slot `fruit_type` (enter the name and press Enter to create)
+在弹出的Slot窗口中，我们需要注意输入`Slot Name`，这里填写Slot的名称`水果类型`（输入名称后按回车即可创建）
 ![img_6.png](/assets/images/form_fruit_create_slot_info.jpg)
 
-The blue part is automatically created after saving the Slot:
+蓝色部分是保存Slot后自动创建的：
 
-- "fruit_type" : Slot name
-- "-"          : `Rhetorical` node. Output a sentence to prompt the user to enter the information.
+- "水果类型" : 插槽名字
+- "-"          : `反问` 节点用于输出一句话提示用户输入信息。
 ![img_8.png](/assets/images/form_fruit_create_slot_success.jpg)
-Double-click the `Rhetorical` node and fill in`Perfect! What kinds of fruits would you like to order?`. Ask the user what type of fruit they want to buy
+双击`反问`节点并填写 "您想订购什么种类的水果？" 询问用户想要购买什么类型的水果。
 ![img_11.png](/assets/images/form_fruit_create_rhe_info.jpg)
 
-After the `Rhetorical` node, we need to add a user input to get the type of fruit the user needs, and at this time we need to mark the desired fruit type.
+在`反问`节点之后，我们需要添加一个用户输入来获取用户需要的水果类型，这时候我们需要标记出想要的水果类型。
 ![img_9.png](/assets/images/form_fruit_rhe_after_fruitType.jpg)
 ![img_10.png](/assets/images/form_fruit_rhe_after_fruitType_info.jpg)
 
-So far, the `fruit_type` slot has been created.
+到目前为止，`水果类型`槽已创建。
 
 ![img_12.png](/assets/images/form_fruit_rhe_after_fruitType_success.jpg)
-Add `count` slot like this:
+添加`数量`插槽，如下所示:
 ![img_13.png](/assets/images/form_fruit_rhe_after_count.jpg)
 
 ## Interrupts
-During the ordering process, the user may ask some questions or exit the conversation
-- Do apples have a sweet taste? (After answered the question, go back to From)
-- Actually, I've changed my mind. I won't buy any fruits today. (Exit From, stop order)
+在订购过程中，用户可能会提出一些问题或退出对话
+- 苹果有甜味吗？ （回答完问题后，返回From）
+- 事实上，我改变了主意。 今天不买水果了 （退出，停止订单）
     
-### Do apples have a sweet taste?
+### 苹果甜吗？
 ![img_14.png](/assets/images/form_fruit_interrupt_1.jpg)
 
-### Break Form
-Add user input for user exit in interrupt, and use `break` node to exit Form
+### 跳出表单
+Interrupt中添加用户退出的用户输入，并使用`break`节点退出表单
 ![img_15.png](/assets/images/form_fruit_interrupt_2.jpg)
 
 ## Confirm
-The `Confirm` node handles the completion of the collection form, here we confirm the order to the user
+`Confirm`节点处理集合表单的完成，这里我们向用户确认订单
 ![img_16.png](/assets/images/form_fruit_confirm.jpg)
 
-## The complete flow diagram is as follows:
+## 完整流程图如下
 ![img_17.png](/assets/images/form_fruit_overview_1.jpg)
 ![img_18.png](/assets/images/form_fruit_overview_2.jpg)
 ![img_19.png](/assets/images/form_fruit_overview_3.jpg)
@@ -103,22 +102,22 @@ The `Confirm` node handles the completion of the collection form, here we confir
 
 # FAQ
 
-## Can I fill multiple slots in one sentence?
-Yes, we support fill multiple slots in one sentence.
-Example: 
+## 我可以用一句话填补多个插槽吗？
+是的，我们支持在一句话中填充多个槽位。
+例子: 
 ```text
-Bot : Hello!
-      What can i do for you?
-User: Hi there! I'd like to order some fruits
+Bot : 你好!
+      我能为你做什么?
+User: 我想卖一水果。
 
-Bot : Perfect! What kinds of fruits would you like to order?
-# count and fruit type in one sentence
-User: Let's go with 5 apples
+Bot : 你想买什么水果?
+# 数量 和 水果类型 都在这句话中。
+User: 我要5斤苹果。
 
-Bot : Perfect! I have your order 5 apples.
-User: Thanks
-Bot : You are welcome! I'll prepare your order with 5 apples, fell free to ask!
+Bot : 好的，我知道了
+User: 谢谢
+Bot : 谢谢你的光临，我正在为你准备5斤苹果，还有其它需要的嘛!
 ```
 
-Mark multiple slots in the `Slot` node in From
+在表单中的`Slots`节点中标记多个插槽
 ![form-21](/assets/images/form_fruit_required_slots.jpg)
