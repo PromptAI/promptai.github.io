@@ -1,69 +1,68 @@
 ---
 layout: en
-title: Dialog Flow
+title: 流程
 parent: 使用指南
 nav_order: 4
 ---
 
-## Create a dialog flow
-Click `Flows` in the left navigation pane to add a dialog new flow.  Enter the flow name and description in the pop-up dialog box.
+## 创建流程
+单击左侧导航窗格中的`创建流程`以添加对话框新流程。 在弹出的对话框中输入流名称和描述。
 
 ![flow_create.jpg](/assets/images/tutorial/flow_create.jpg)
 
-## Add a user utterance node
-After creating a new dialog flow, it will display the flow window. Click the root node of the flow and here we click `Add User Node`.
+## 添加用户话语节点
+创建新的对话流后，将显示流窗口。 单击流程的根节点，在这里我们单击`添加用户节点`。
 
 ![flow_add_user_node.jpg](/assets/images/tutorial/flow_add_user_node.jpg)
 
-## Edit a user utterance node
-Click the user utterance; the editing pane will pop up on the right. It is expected that multiple utterances are needed so that the user intent can be classified correctly. 
+## 编辑用户话语节点
+点击用户话语； 右侧会弹出编辑窗格。 预计需要多个话语才能正确分类用户意图。
 
 ![flow_edit_user_node.jpg](/assets/images/tutorial/flow_edit_user_node.jpg)
 
-The followings are a few options you can make for user utterance. 
+以下是您可以为用户话语做出的一些选项。
 
-| Name                           | Usage            |
+| 名称                           | 描述            |
 |--------------------------------|-------------------|
-| Expect User Utterance          | The expected user utterance in this node     |
-| Select from intent list        | Select from an [intent template](/docs/tutorial/template_user/)   |
-| Save to intent list            | Save the current intent as an [intent template](/docs/tutorial/template_user/)    |
-| Are slots expected?            | Are we going to extract a slot value(s) from the user utterance?   |
-| Description                    | Some comments about this intent (optional)|
-| After the user message arrives | If needed, [reset slot value](/docs/advance_control/reset_slot/) based on the user utterance   |
+| 期望用户输入         | 当前节点的期望用户输入    |
+| 从意图模版中选        | 从[意图模版](/docs/tutorial/template_user/)中选择   |
+| 保存到意图模版            | 保存到[意图模版](/docs/tutorial/template_user/)    |
+| 是否需要变量           | 是否从意图中提起变量   |
+| 描述                    | 描述当前节点（可选）|
+| 重置变量值 | 可以[重置变量值](/docs/advance_control/reset_slot/)   |
 
-## Add a bot response node
-Continue to the user utterance node and select `Add Bot Node` from the pop-up menu. 
+## 创建智能回复节点
+继续到用户输入节点，然后从弹出菜单中选择`添加机器人节点`。 
 
 ![flow_edit_bot_node.jpg](/assets/images/tutorial/flow_edit_bot_node.jpg)
 
-The followings are a few options you can make for bot reply. 
+以下是您可以为机器人回复设置的一些选项。
 
-| Name                          | Usage            |
+| 名称                          | 描述            |
 |-------------------------------|-------------------|
-| Bot Reply                     | What the bot will say|
-| Select from responses         | Select a response from [response template](/docs/tutorial/template_bot/)     |
-| Save to responses             | Save the response as [response template](/docs/tutorial/template_bot/)|
-| Bot Reply                     | Five different kinds of replies the bot can make. Please choose one.  |
-| Before the bot replies        | The [reply condition](/docs/advance_control/reply_conditions/) that needs to be met before the bot replies.         |
-| After the user message arrives| If needed, [reset slot value](/docs/advance_control/reset_slot/)               |
-| Conditional Response          | Give different responses according to [conditions](/docs/advance_control/conditional_response/)     |
+| 机器回复                   | 聊天机器人将回复的消息|
+| 从回答列表中选取         | 从[回答列表](/docs/tutorial/template_bot/)中选择     |
+| 保存到回答列表             | 保存到[回答列表](/docs/tutorial/template_bot/)|
+| 回复条件        | [回复条件](/docs/advance_control/reply_conditions/)在回复前生效         |
+| 重置变量值| 如果需要，[重置变量值](/docs/advance_control/reset_slot/)可以重置变量插槽               |
+| 变量回复列表         |  通过不同[变量](/docs/advance_control/conditional_response/)回复不同的消息     |
 
-There are five different kinds of replies a bot can make:
+机器人可以做出五种不同类型的回复：
 
-- Text       : Send a text message to the user
-- Image      : Send a text message with images
-- Attachment : Append an attachment 
-- Webhook    : Call a webhook 
-- Action     : Run an action Python code
+- Text       : 文本消息
+- Image      : 图片文本消息
+- Attachment : 附件消息
+- Webhook    : 调用webhook 
+- Action     : 运行Action
 
-### Multiple responses
-We can add multiple lines of texts to the bot response node or add another bot response node after the current one. 
+### 多条智能回复消息
+我们可以向机器人响应节点添加多行文本，或者在当前机器人响应节点之后添加另一个机器人响应节点。
 
-- The bot response node adds multiple text responses, as shown in the figure.
+- 机器人响应节点添加多个文本响应，如图所示。
   
   ![flow_edit_bot_node_mutilp.jpg](/assets/images/tutorial/flow_edit_bot_node_mutilp.jpg)
 
-- The implementation method of adding another bot response node after the current one is shown in the figure.
+- 在当前机器人响应节点之后添加另一个机器人响应节点的实现方法如图所示。
   
   ![flow_edit_bot_node_mutilp2.jpg](/assets/images/tutorial/flow_edit_bot_node_mutilp2.jpg)
 
@@ -77,10 +76,10 @@ The dialogue effect pictures of the two methods are as follows:
 ![10-create-multi-bot-replay](/assets/images/tutorial/flow/08-flow.png)
 -->
 
-The dialogue effect is shown below where the file will be displayed in conversation. You can directly click the file name to download it:
+对话效果如下所示，文件将在对话中显示。 您可以直接点击文件名进行下载：
 
 ![flow_dialog_result.jpg](/assets/images/tutorial/flow_dialog_result.jpg)
 
-## Done
+## 完成
 
-So far, a simple dialog flow diagram was completed.
+至此，一个简单的对话流程图就完成了。
