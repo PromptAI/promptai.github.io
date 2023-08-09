@@ -1,47 +1,35 @@
 ---
 layout: en
-title: Install Questions
-parent: Common Questions
+title: 安装问题
+parent: 常见问题
 nav_order: 1
 ---
-### Where can I download the local running environment installer? 
-The local running environment can be installed by following steps:
-- log in system
-- Click `Local Running Environment` on the upper right corner
-- Click `Manage Agents` in the pop-up window
-- Click `Install Agent` in the pop-up window
-- You can see the installation command under `Install`
+### 如何安装`本地运行环境`？
+本地运行环境可以通过以下步骤安装：
+- 登录系统
+- 点击右上角`本地运行环境`
+- 在弹出窗口中点击`管理代理`
+- 在弹出窗口中单击`安装代理`
+- 您可以在`Install`下看到安装命令
 
 ![01-install-questions.png](/assets/images/install_agent.jpg)
 
-### Can it be installed on different machines?
-An agent can only be installed on one computer. If you have multiple computers, you will need to create a corresponding number of agents and install them separately on each computer.
+### 我有多台服务器/电脑，如何安装？
+代理只能安装在一台计算机上, 如果您有多台计算机则需要创建相应数量的代理并分别安装在每台计算机上。
 
-### How to uninstall the agent
-The agent not in use can be uninstalled through the "Manage Agents" management panel.
-
+### 如何删除代理?
+如果代理没有安装成功，可通过“管理代理”管理面板进行删除。
 ![02-install-questions.png](/assets/images/delete_agent.jpg)
 
-<!--- 正在使用的Agent不能通过"Manage Agents"管理面板删除，需要在安装机器中执行卸载命令。 当卸载命令执行完成后，"Manage Agents"中的Agent将会被删除。
---->
+正在使用的代理无法通过`管理代理`管理面板删除。 卸载命令需要在安装Agent的机器上执行。 执行卸载命令成功执行后`管理代理`中的代理将被删除。
+- 注意：执行卸载命令时需要保持网络畅通。
 
-The agent in use cannot be deleted through the "Manage Agents" management panel.  The uninstall command needs to be executed on the machine where the agent is installed.  When the uninstallation command is executed, the agent in "Manage Agents" will be deleted.
+### 如何升级代理？
 
-- Note: You need to keep the network unobstructed when executing the uninstall command。 
-
-### How to upgrade the agent?
-<!---
-- 登录安装Agent的机器
-- 在shell中执行'~/zbot/install_agent.sh upgrade'
-- 输入`y`确认升级 [升级期间将会导致服务短暂不可使用]
+- 登录安装了agent的机器
+- 在 shell 中执行 `~/zbot/install_agent.sh update`
+- 输入‘y’确认升级【更新期间服务将暂时不可用】
 - 等待升级完成
---->
-
-- Log in to the machine where the agent is installed
-- Execute `~/zbot/install_agent.sh upgrade` in the shell
-- Enter `y` to confirm the upgrade [the service will be temporarily unavailable during the update]
-- Wait for the upgrade to complete
-
 
 ```shell
 # ~/zbot/install_agent.sh upgrade
@@ -55,22 +43,14 @@ docker.io/promptai/zbot-agent:latest
 xxxxx
 ```
 
-### How to uninstall the agent locally?
-<!---
+### 如何在服务器中卸载代理？
+
 - 登录安装Agent的机器
 - 在shell中执行'promptai uninstall'
 - 输入`y`确认卸载
 - 等待卸载完成
 
 注意：此过程需要保持网络通畅，否则将导致无法成功卸载.
---->
-
-- Log in to the machine where the agent is installed
-- Execute `~/zbot/install_agent.sh uninstall` in the shell
-- Enter `y` to confirm uninstallation
-- Wait for the uninstallation to complete
-
-Note: This process needs to keep the network unobstructed, otherwise it will lead to failure.
 
 ```shell
 # ~/zbot/install_agent.sh uninstall
