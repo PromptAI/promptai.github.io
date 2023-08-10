@@ -16,7 +16,7 @@ has_children: false
 
 ![03-local-running-env.png](/assets/images/local_running_env/03-local-running-env.png)
 
-### 创建第一个代理
+### 创建第一个Agent
 本地机器应满足最低系统要求：
 ```text
 操作系统   ：Linux/Mac操作系统
@@ -41,7 +41,7 @@ Docker环境：20.10.6 或更高版本
 
 请根据您本地机器的操作系统执行弹窗中显示的安装命令：
 ```shell
-curl -o install_agent.sh 'https://app.promptai.us/rpc/install/install_agent.sh?key=your_config' && chmod +x install_agent.sh && ./install_agent.sh install
+curl -o install_agent.sh 'https://app.promptai.cn/rpc/install/install_agent.sh?key=your_config' && chmod +x install_agent.sh && ./install_agent.sh install
 ```
 注意：安装往往与网络有关，请耐心等待。如果您需要帮助请通过 [info@promptai.cn](info@promptai.cn) 联系我们。
 
@@ -64,7 +64,7 @@ curl -o install_agent.sh 'https://app.promptai.us/rpc/install/install_agent.sh?k
 - 操作系统：Linux / MacOS
 - 位置    ：$HOME/zbot
 
-请不要修改上述目录中的任何文件。
+* 请不要修改上述目录中的任何文件。
 
 
 Agent安装成功后，会在“$HOME/zbot”目录下创建“install_agent.sh”脚本，用于升级和卸载Agent。
@@ -79,7 +79,7 @@ Agent的实现是由Docker完成的，包括两个镜像和多个容器。
 | 名称  | 镜像                        | 解释                             |
 |:------|:-----------------------------|----------------------------------|
 |  AI   | registry.cn-hangzhou.aliyuncs.com/promptai/zbotai:release      | 人工智能模型                              |
-| Agent | registry.cn-hangzhou.aliyuncs.com/promptai/zbot-agent            latest   | 代理服务，对AI容器进行管理 |
+| Agent | registry.cn-hangzhou.aliyuncs.com/promptai/zbot-agent:latest   | 代理服务，对AI容器进行管理 |
 
 
 - Docker 容器
