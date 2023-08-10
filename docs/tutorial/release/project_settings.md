@@ -9,12 +9,11 @@ grand_parent: 使用指南
 
 ## 概述
 项目设置包括以下几项：
-- 姓名
+- 名称
 - 语言
-- 描述
-- 欢迎辞
-- 倒退
+- 欢迎语
 - 图标
+- 描述
 
 除了上面的配置之外，还有其他的配置项：
 - 将常见问题解答和流程呈现为按钮的选项，
@@ -28,10 +27,10 @@ grand_parent: 使用指南
 
 ![welcome_config_2](/assets/images/tutorial/welcome_config_2.jpg)
 
-## Fallback
-可以查看 `Fallback` 的详细配置 [这里](https://doc.promptai.us/docs/tutorial/default_reply/)
+## 默认回复
+可以查看 `默认回复` 的详细配置 [这里](/docs/tutorial/fallback/)
 
-## FAQ 和 流图的选项呈现为按钮
+## FAQ和对话流图的选项呈现为按钮
 是否将每个模块显示为欢迎消息下方的按钮，您可以在此处进行配置，下图包含“不显示”选项的效果。
 
 ![as_button_1](/assets/images/tutorial/as_button_1.jpg)
