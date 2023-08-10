@@ -5,17 +5,17 @@ parent: 使用指南
 nav_order: 9
 ---
 
-在机器人响应面板中，设计者可以单击`+Action`添加用Python编写的Action函数，这将为设计者提供插入具有更复杂逻辑的Python代码的工具。 Action python 代码将被放置到 `Actions. py` 文件在 Rasa 中，当机器人给出当前响应时将被触发。 
+在机器人响应面板中，设计者可以单击`+Action`添加用Python编写的Action函数，这将为设计者提供插入具有更复杂逻辑的Python代码的工具。 Action python 代码将被放置到 `Actions.py` 文件在 Rasa 中，当机器人给出当前响应时将被触发。
 
 ![action-02](/assets/images/tutorial/action/action-02.png)
 
-在弹出的窗口中，设计者可以编写Action函数的Python代码。 
+在弹出的窗口中，设计者可以编写Action函数的Python代码。
 
 ![action-01](/assets/images/tutorial/action/action-01.png)
 
 
 ## Rasa 会话
-现在让我们看一个示例，展示如何将操作代码添加到 Rasa 文件中：  
+现在让我们看一个示例，展示如何将操作代码添加到 Rasa 文件中： 
 
 - actions/Actions.py
 - domain.yml
