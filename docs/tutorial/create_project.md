@@ -11,6 +11,6 @@ nav_order: 1
 ![project-create-detail](/assets/images/tutorial/project_create.jpg)
 
 ## 完成
-创建项目完成后，点击项目进入概览界面。
+创建项目完成后，点击项目进入`对话概览`界面。
 
 ![project-main-view](/assets/images/tutorial/project_overview_edit_project.jpg)
