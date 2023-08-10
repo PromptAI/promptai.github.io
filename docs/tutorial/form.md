@@ -4,7 +4,7 @@ title: 表单
 parent: 使用指南
 nav_order: 7
 ---
-在PromptDialog中，Form是一个从用户收集一组信息的组件。 该信息将存储在槽中。 在下面的示例中，机器人向用户收集水果类型和数量信息，并在完成后与用户确认。 该信息收集对话可以通过具有两个必需槽的表单来实现：水果类型和数量。
+在PromptDialog中，Form是一个从用户收集一组信息的组件，收集的信息将存储在变量中。 在下面的示例中，机器人向用户收集水果类型和数量信息并在完成后与用户确认。该信息收集对话可以通过具有两个必需变量的表单来实现：水果类型和数量。
 
 ```text
 Bot : 你好!
@@ -29,6 +29,7 @@ Bot : 不客气！ 我会为您准备 5 个苹果!
 
 ## 如何使用表单?
 接下来，我们将介绍如何创建上面提到的用户订购水果的示例。
+
 ### 创建一个“水果”的流程
 ![img.png](/assets/images/form_fruit_create_flow.jpg)
 
@@ -45,10 +46,10 @@ Bot : 不客气！ 我会为您准备 5 个苹果!
 ![img_4.png](/assets/images/form_fruit_create_form_success.jpg)
 
 |  名称        |  是否必填 | 描述                                                   |
-|--------------|----------|--------------------------------------------------------|
-| Slots        |    是   | 需要收集的插槽                        |
-| Interrupts   |    否    | 填写表格或退出表格时可能出现的问题 |
-| Confirm      |    是   | 表单收集成功后                       |
+|--------------|---------|-----------------------------|
+| Slots        |    是   | 需要收集的插槽                 |
+| Interrupts   |    否   | 填写表格或退出表格时可能出现的问题|
+| Confirm      |    是   | 表单收集成功后                 |
   
 ## Slots
 我们需要通过Slots收集用户的`水果类型`和`数量`，然后详细说明如何添加`水果类型`
@@ -62,7 +63,7 @@ Bot : 不客气！ 我会为您准备 5 个苹果!
 蓝色部分是保存Slot后自动创建的：
 
 - "水果类型" : 插槽名字
-- "-"          : `反问` 节点用于输出一句话提示用户输入信息。
+- "-"      : `反问` 节点用于输出一句话提示用户输入信息。
 ![img_8.png](/assets/images/form_fruit_create_slot_success.jpg)
 双击`反问`节点并填写 "您想订购什么种类的水果？" 询问用户想要购买什么类型的水果。
 ![img_11.png](/assets/images/form_fruit_create_rhe_info.jpg)
@@ -71,10 +72,10 @@ Bot : 不客气！ 我会为您准备 5 个苹果!
 ![img_9.png](/assets/images/form_fruit_rhe_after_fruitType.jpg)
 ![img_10.png](/assets/images/form_fruit_rhe_after_fruitType_info.jpg)
 
-到目前为止，`水果类型`槽已创建。
+到目前为止，`水果类型`变量已创建。
 
 ![img_12.png](/assets/images/form_fruit_rhe_after_fruitType_success.jpg)
-添加`数量`插槽，如下所示:
+添加`数量`变量，如下所示:
 ![img_13.png](/assets/images/form_fruit_rhe_after_count.jpg)
 
 ## Interrupts
@@ -119,5 +120,5 @@ User: 谢谢
 Bot : 谢谢你的光临，我正在为你准备5斤苹果，还有其它需要的嘛!
 ```
 
-在表单中的`Slots`节点中标记多个插槽
+在表单中的`Slots`节点中标注多个变量
 ![form-21](/assets/images/form_fruit_required_slots.jpg)
