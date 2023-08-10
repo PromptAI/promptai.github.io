@@ -36,17 +36,17 @@ nav_order: 1
 Nvidia GPU found.
 start upgrade PromptAI Agent...
 This action will cause the service to be unavailable, continue (y/n)? y
-latest: Pulling from promptai/zbot-agent
+latest: Pulling from registry.cn-hangzhou.aliyuncs.com/promptai/zbot-agent:latest
 Digest: sha256:xxxxx
 Status: Image is up to date for promptai/zbot-agent:latest
-docker.io/promptai/zbot-agent:latest
+registry.cn-hangzhou.aliyuncs.com/promptai/zbot-agent:latest
 xxxxx
 ```
 
 ### 如何在服务器中卸载代理？
 
 - 登录安装Agent的机器
-- 在shell中执行`promptai uninstall`
+- 在shell中执行`~/zbot/install_agent.sh uninstall`
 - 输入`y`确认卸载
 - 等待卸载完成
 

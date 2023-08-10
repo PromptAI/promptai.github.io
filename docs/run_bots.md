@@ -9,14 +9,14 @@ has_children: false
 成功创建帐户后，您可以立即开始设计聊天机器人。有两种方法可以训练和测试您的设计。
 
 - 云端: 这是首选选项，因为它支持RASA不具备的许多新功能。您还可以下载生成的RASA代码（它启用DIET和TEDPolicy作为默认训练选项）并在您自己的RASA环境中运行它。
-- 本地: 您可以创建如下所示的本地运行环境，它为您打包了所有内容，并允许您与PromptDialog进行通信以运行和测试您的机器人。如果您更喜欢在本地设计、训练和运行机器人的完整云解决方案，请联系我们[info@promptai.cn](info@promptai.cn)。
+- 本地: 您可以创建如下所示的本地运行环境，它为您打包了所有内容，并允许您与PromptDialog进行通信以运行和测试您的机器人。如果您更喜欢在本地设计、训练和运行机器人的完整云解决方案，请联系我们[info@promptai.cn](mailto:info@promptai.cn)。
 
 ##  本地运行环境 (LRE)
 本地运行环境使用打包RASA 3.2.0的docker实现以及在PromptDialog Cloud和本地RASA环境之间通信的代理。PromptDialog Cloud管理设计的各个方面，本地RASA环境负责训练模型。
 
 ![03-local-running-env.png](/assets/images/local_running_env/03-local-running-env.png)
 
-### 创建第一个代理
+### 创建第一个Agent
 本地机器应满足最低系统要求：
 ```text
 操作系统   ：Linux/Mac操作系统
@@ -41,9 +41,9 @@ Docker环境：20.10.6 或更高版本
 
 请根据您本地机器的操作系统执行弹窗中显示的安装命令：
 ```shell
-curl -o install_agent.sh 'https://app.promptai.us/rpc/install/install_agent.sh?key=your_config' && chmod +x install_agent.sh && ./install_agent.sh install
+curl -o install_agent.sh 'https://app.promptai.cn/rpc/install/install_agent.sh?key=your_config' && chmod +x install_agent.sh && ./install_agent.sh install
 ```
-注意：安装往往与网络有关，请耐心等待。如果您需要帮助请通过 [info@promptai.cn](info@promptai.cn) 联系我们。
+注意：安装往往与网络有关，请耐心等待。如果您需要帮助请通过 [info@promptai.cn](mailto:info@promptai.cn) 联系我们。
 
 安装成功后，进入“管理Agents”页面可以看到已安装的Agent
 ![02-local-running-env.png](/assets/images/local_running_env/02-local-running-env.png)
@@ -64,7 +64,7 @@ curl -o install_agent.sh 'https://app.promptai.us/rpc/install/install_agent.sh?k
 - 操作系统：Linux / MacOS
 - 位置    ：$HOME/zbot
 
-请不要修改上述目录中的任何文件。
+* 请不要修改上述目录中的任何文件。
 
 
 Agent安装成功后，会在“$HOME/zbot”目录下创建“install_agent.sh”脚本，用于升级和卸载Agent。
@@ -79,7 +79,7 @@ Agent的实现是由Docker完成的，包括两个镜像和多个容器。
 | 名称  | 镜像                        | 解释                             |
 |:------|:-----------------------------|----------------------------------|
 |  AI   | registry.cn-hangzhou.aliyuncs.com/promptai/zbotai:release      | 人工智能模型                              |
-| Agent | registry.cn-hangzhou.aliyuncs.com/promptai/zbot-agent            latest   | 代理服务，对AI容器进行管理 |
+| Agent | registry.cn-hangzhou.aliyuncs.com/promptai/zbot-agent:latest   | 代理服务，对AI容器进行管理 |
 
 
 - Docker 容器

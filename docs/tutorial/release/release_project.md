@@ -21,13 +21,12 @@ grand_parent: 使用指南
 
 ## 发布完成
 
-如图所示，发布完成后，发布旁边的图标会发生变化，将鼠标放在该图标上，提示发布完成。
+如图所示，发布完成后旁边的图标会发生变化，将鼠标放在该图标上会提示发布完成。
 
 ![release_completed.jpg](/assets/images/tutorial/release_completed.jpg)
 
 ## 测试
 如图所示，在机器人对话窗口中输入聊天信息，验证机器人是否按预期回复。
-这里我们验证的是，用户询问水果价格是否能够从webhook正确获取水果价格信息，结果符合预期。
 
 ![release_test.jpg](/assets/images/tutorial/release_test.jpg)
 
@@ -37,7 +36,7 @@ grand_parent: 使用指南
 要求：
   - 互联网支持
   - 允许访问：https://app.promptai.cn 端口：443
-  - 现代浏览器：例如最新版本的 Chrome
+  - 现代浏览器：例如最新版本的Chrome
 
 ### 二维码 [移动端]
 当您需要访问移动端时，可以通过访问移动端链接或扫描二维码进行体验。
@@ -51,7 +50,7 @@ grand_parent: 使用指南
 1. 如图，这里我们准备了一个项目，并在项目中发布
    ![release_web_script.jpg](/assets/images/tutorial/release_web_script.jpg)
 
-    - 将“Web(javascript)”粘贴到您的 html 标头中
+    - 将“Web(javascript)”粘贴到您的 html 中
     ```html
         '<!DOCTYPE html>
         <html lang="en">
@@ -86,5 +85,5 @@ grand_parent: 使用指南
         </html>  '  
     ```
 
-2. 当我们打开网站时，我们可以看到网站的右下角多了一些聊天框。 单击“打开”启动智能会话。 至此，我们的智能会话已经发布了。
+2. 当我们打开网站时，我们可以看到网站的右下角多了一些聊天框。 单击“打开”启动智能会话。 至此，我们的j机器人发布成功。
    ![release_web_script_demo_1.jpg](/assets/images/tutorial/release_web_script_demo_1.jpg)
