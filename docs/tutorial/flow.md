@@ -72,7 +72,7 @@ When the machine replies to multiple content, you need to adjust the reply order
 ![20-bot-text-order.png](/assets/images/tutorial/flow/07-flow.png)
 - If you need to adjust the reply order of multiple consecutive machine reply nodes, you only need to use the Recycle Bin function to adjust the order of machine reply nodes
 
-The dialogue effect pictures of the two methods are as follows:
+The dialogue effect pictures of the two   methods are as follows:
 ![10-create-multi-bot-replay](/assets/images/tutorial/flow/08-flow.png)
 -->
 
