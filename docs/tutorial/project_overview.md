@@ -25,6 +25,6 @@ nav_order: 2
 
 
 ## Fallback
-- 单击`默认回复`。 然后单击弹出的“编辑节点”，您可以在其中编辑机器人在不理解用户话语时将采取的后备操作。 默认设置是，将向用户发送默认文本消息。 
+- 单击`默认回复`。 然后单击弹出的“编辑节点”，您可以在其中编辑机器人在不理解用户输入时将采取的后备操作。 默认设置是，将向用户发送默认文本消息。 
 
 ![project_overview_edit_fallback.jpg](/assets/images/tutorial/project_overview_edit_fallback.jpg)

@@ -13,7 +13,7 @@ nav_order: 2
   
 ![01-reply-condition.png](/assets/images/tutorial/reply_condition/01-reply-condition.png)
 
-如果用户话语不包含位置信息（此时我们可以使用`回复条件`来检测），机器人需要询问用户：
+如果用户输入不包含位置信息（此时我们可以使用`回复条件`来检测），机器人需要询问用户：
 - 请告诉我你所在的城市？
 ![02-reply-condition.png](/assets/images/tutorial/reply_condition/02-reply-condition.png)
 

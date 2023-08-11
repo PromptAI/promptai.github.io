@@ -20,7 +20,7 @@ nav_order: 4
 
 ![flow_edit_user_node.jpg](/assets/images/tutorial/flow_edit_user_node.jpg)
 
-以下是您可以为用户话语做出的一些选项。
+以下是您可以为用户输入做出的一些选项。
 
 | 名称                           | 描述            |
 |--------------------------------|-------------------|
