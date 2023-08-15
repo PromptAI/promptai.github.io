@@ -39,7 +39,7 @@ This action will cause the service to be unavailable, continue (y/n)? y
 latest: Pulling from registry.cn-hangzhou.aliyuncs.com/promptai/zbot-agent:latest
 Digest: sha256:xxxxx
 Status: Image is up to date for promptai/zbot-agent:latest
-registry.cn-hangzhou.aliyuncs.com/promptai/zbot-agent:latest
+promptai/zbot-agent:latest
 xxxxx
 ```
 
