@@ -6,7 +6,7 @@ has_children: false
 ---
 # Welcome to Prompt AI
 {: .no_toc .header }
-PromptDialog 是一款智能会话助理的集成开发(IDE)和操作/运维环境(DevOps)，可实现智能助理（又名聊天机器人）的快速开发和交付。
+PromptDialog 是PromptAI.us 的一款构建智能会话助理的集成开发(IDE)和运维环境(DevOps)，可实现智能助理（又名对话机器人）的快速开发和交付。
 
 PromptDialog支持Rasa和GPT4，以及完整的设计/测试/部署环境（Rasa-X和Rasa-Pro的免费替代方案）。 通过PromptDialog，我们的目标是为您带来最新的LLMs体验，并显着降低 (90%) 的对话系统的开发成本。
 
