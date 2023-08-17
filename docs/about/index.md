@@ -16,3 +16,8 @@ PromptDialog支持Rasa和GPT4，以及完整的设计/测试/部署环境（Rasa
 * 直观的业务逻辑设计流程，可以明确地绘制，不再像带注释的对话或Python程序那样模糊，它可以让您的开发团队成员共享同一个对话流程。
 * 一体化DevOps：在同一个平台上， 不管是本地或者云端 进行设计、开发和运维客户对话。
 * 低样本意图分类和实体识别，需要更少甚至不需要标注数据（即将推出）。
+
+[Xifeng Yan](www.cs.ucsb.edu/~xyan), PromptAI
+
+Prof.  Xifeng Yan 在构建基于知识的对话式人工智能引擎方面拥有丰富的经验。他的团队参与了各种对话机器人的构建，包括 2022-2023 年的三项 Amazon Alexa 对话机器人挑战赛：TaskBot、SimBot 和 Socialbot。他的所有团队均以 Amazon Alexa 用户评分最高的成绩进入决赛。
+
