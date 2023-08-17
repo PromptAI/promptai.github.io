@@ -1,6 +1,6 @@
 ---
 layout: en
-title: 欢迎使用 Prompt 
+title: 欢迎使用 PromptDialog
 nav_order: 1
 has_children: false
 ---
