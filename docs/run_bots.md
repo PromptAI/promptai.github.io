@@ -6,13 +6,13 @@ has_children: false
 ---
 {: .no_toc .header }
 
-成功创建帐户后，您可以立即开始设计聊天机器人。有两种方法可以训练和测试您的设计。
+成功创建帐户后，您可以立即开始设对话机器人。有两种方法可以训练和测试您的设计。
 
 - 云端: 这是首选选项，因为它支持RASA不具备的许多新功能。您还可以下载生成的RASA代码（它启用DIET和TEDPolicy作为默认训练选项）并在您自己的RASA环境中运行它。
-- 本地: 您可以创建如下所示的本地运行环境，它为您打包了所有内容，并允许您与PromptDialog进行通信以运行和测试您的机器人。如果您更喜欢在本地设计、训练和运行机器人的完整云解决方案，请联系我们[info@promptai.cn](mailto:info@promptai.cn)。
+- 本地: 您可以创建如下所示的本地运行环境，它为您打包了所有内容，并允许您与PromptDialog进行通信以运行和测试您的机器人。如果您更喜欢在本地设计、训练和运行机器人的解决方案，请联系我们[info@promptai.cn](mailto:info@promptai.cn)。
 
 ##  本地运行环境 (LRE)
-本地运行环境使用打包RASA 3.2.0的docker实现以及在PromptDialog Cloud和本地RASA环境之间通信的代理。PromptDialog Cloud管理设计的各个方面，本地RASA环境负责训练模型。
+本地运行环境使用打包Rasa 3.2.0的docker实现以及在PromptDialog Cloud和本地Rasa环境之间的通信代理。PromptDialog Cloud管理设计的各个方面，本地Rasa负责训练模型。
 
 ![03-local-running-env.png](/assets/images/local_running_env/03-local-running-env.png)
 
@@ -51,7 +51,7 @@ curl -o install_agent.sh 'https://app.promptai.cn/rpc/install/install_agent.sh?k
 安装完成，可以使用PromptDialog Cloud中的所有功能！
 
 ## 什么是Agent？
-以下部分介绍代理的详细信息,您无需阅读本部分即可在PromptDialog中成功运行聊天机器人。
+以下部分介绍代理的详细信息,您无需阅读本部分即可在PromptDialog中成功运行对话机器人。
 
 - 接收训练/部署任务
 - 上传任务执行步骤、结果
@@ -128,7 +128,7 @@ Agent的实现是由Docker完成的，包括两个镜像和多个容器。
 单击右上角的“下载 RASA 文件”。 将弹出下载框，其中包含以下选项：
 
 * 下载当前模块，下载当前对话框流程，
-* 下载选定的模块，选择当前项目下多个对话流的集合，
+* 下载选定的模块，选择当前项目下多个对话流程的集合，
 * 下载全部，查看当前工程下的所有对话框流程图。
 
 ![download-rasa](/assets/images/download_rasa_file_current.png)
