@@ -22,7 +22,7 @@ Talk2bits生成一个可以放入PromptDialog中的链接。
 
 ![03-index.png](/assets/images/knowledge_base/03-index.png)
 
-在Prompt Dialog中配置Fallback，以便可以将用户问题作为最后的手段来处理。
+在Prompt Dialog中配置Fallback，以便把处理不了的问题做最后的处理。
 ![04-index.png](/assets/images/knowledge_base.jpg)
 
 现在机器人可以使用Talk2Bits所提供的回答。
