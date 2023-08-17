@@ -31,7 +31,7 @@ PromptAI强调对用户数据的保护，并受到严格的加密和访问控制
 ![05-overview.png](/assets/images/overview/05-overview.png)
 
 ## 步骤 3 - 调试和发布
-现在您可以在 PromptDialog 中调试/运行新的聊天机器人。
+现在您可以在 PromptDialog 环境中调试/运行新的对话机器人。
 ![overview_running_debug_bot.png](/assets/images/overview/overview_running_debug_bot.png)
 
 一旦您对结果感到满意就可以发布了，我们提供了多种[发布](/docs/tutorial/release/release_project/) 的方式。
