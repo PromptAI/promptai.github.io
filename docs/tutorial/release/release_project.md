@@ -26,7 +26,7 @@ grand_parent: 使用指南
 ![release_completed.jpg](/assets/images/tutorial/release_completed.jpg)
 
 ## 测试
-如图所示，在机器人对话窗口中输入聊天信息，验证机器人是否按预期回复。
+如图所示，在机器人对话窗口中输入对话信息，验证机器人是否按预期回复。
 
 ![release_test.jpg](/assets/images/tutorial/release_test.jpg)
 
@@ -85,5 +85,5 @@ grand_parent: 使用指南
         </html>  '  
     ```
 
-2. 当我们打开网站时，我们可以看到网站的右下角多了一些聊天框。 单击“打开”启动智能会话。 至此，我们的j机器人发布成功。
+2. 当我们打开网站时，我们可以看到网站的右下角多了一些对话框。 单击“打开”启动智能会话。 至此，我们的机器人发布成功。
    ![release_web_script_demo_1.jpg](/assets/images/tutorial/release_web_script_demo_1.jpg)
