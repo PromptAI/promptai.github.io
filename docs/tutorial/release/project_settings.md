@@ -20,7 +20,7 @@ grand_parent: 使用指南
 - 常见问题解答和每个流程的第一条消息。
 
 ## 欢迎语
-`欢迎语`是聊天机器人的第一条消息，您可以通过以下方式配置它：
+`欢迎语`是对话机器人的第一条消息，您可以通过以下方式配置它：
 
 ![welcome_config_1](/assets/images/tutorial/welcome_config_1.jpg)
 或者在这里配置。
