@@ -15,13 +15,11 @@ parent: 使用指南
 - 如果出现技术问题或错误，系统会向用户解释问题并可能提供解决方案
 
 ## PromptDialog支持的默认回复
-PromptDialog中支持三种方法，如下图所示
+PromptDialog中支持两种种方法，如下图所示
 - webhook
 - action
-- Talk2bits
 
 ![fallback-mode](/assets/images/tutorial/fallback-mode.jpg)
-
 
 ## 使用Webhook 
 PromDialog支持将默认回复交给第三方API处理
@@ -31,41 +29,13 @@ PromDialog支持将默认回复交给第三方API处理
 ## 使用 Action Fallback
 Action Fallback
 
-## 使用 Talk2Bits Fallback
-PrompDialog支持一键访问Talk2bits处理默认回复，让对话体验更加流畅
-- [Knowledge of Talk2bits](/docs/knowledge_base/)
-
-对于一些文本、文档和网络资料，可以通过Talk2Bits快速阅读构建知识库，并且可以通过连接Talk2Bits这样的平台与PromptAI互补。
-本文将解释如何将 Talk2Bits 集成到 Fallback 中。
-
-* 温馨提示：其他平台可以通过Webhook访问，如果您有任何疑问或要求，请联系我们。
-
-### Talk2Bits
-
-Talk2Bits可以在添加内容后自动生成配置码，不仅可以导入网页直接在右下角生成Chatbot，还可以通过手机扫码直接对话。
-![01-default-reply.jpg](/assets/images/default_reply/01-default-reply.jpg)
-
-* 欲了解更多详情，请访问：https://talk2bits.com/
-* 聊天机器人介绍：https://talk2bits.com/publish
-
-### 例子
-接下来，我们将演示如何将默认回复连接到Talk2Bits。
-
-### Talk2Bits代码
-
-登录Talk2Bits后，点击“Chatbot”打开代码弹窗，然后点击“复制”按钮或手动复制即可获取导入的代码。
-
-![02-default-reply.jpg](/assets/images/default_reply/02-default-reply.jpg)
-
-### 配置使用Talk2bits进行默认回复
-
-在项目`对话概览`-`Fallback`中切换到`Talk2Bits`并粘贴上一步获得的代码，最后点击Save。
-![03-default-reply.jpg](/assets/images/default_reply/03-default-reply.jpg)
-
-### 测试
-通过Talk2Bits响应用户输入。
-![04-default-reply.jpg](/assets/images/tutorial/fallback_talk2bits_result.jpg)
-
 ## 文本回复
-当以上三种方法失败时，我们会使用默认的文本来处理，也就是下图中填写的文字。
+当以上两种方法失败时，我们会使用默认的文本来处理，也就是下图中填写的文字。
+
+支持可选添加按钮关联系统已有的流图和FAQ:
+- Flow: 处于发布状态，如果发后续取消发布，对话时不出现按钮;
+- FAQ：处于发布状态且已启用，如果发后续取消发布或未启用，对话时不出现按钮;
+
+*该修改实时生效，无重新需训练。*
+
 ![fallback-text](/assets/images/tutorial/fallback-text.jpg)
