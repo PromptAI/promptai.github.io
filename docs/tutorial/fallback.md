@@ -32,10 +32,14 @@ Action Fallback
 ## 文本回复
 当以上两种方法失败时，我们会使用默认的文本来处理，也就是下图中填写的文字。
 
-支持可选添加按钮关联系统已有的流图和FAQ:
-- Flow: 处于发布状态，如果发后续取消发布，对话时不出现按钮;
-- FAQ：处于发布状态且已启用，如果发后续取消发布或未启用，对话时不出现按钮;
+![fallback-text](/assets/images/tutorial/fallback-text.jpg)
+
+使用按钮
+- Flow: 发布的流图；
+- FAQ : FAQ中的用户提问；
+
+默认回复下方出现配置的按钮。
 
 *该修改实时生效，无重新需训练。*
 
-![fallback-text](/assets/images/tutorial/fallback-text.jpg)
+![fallback-text-button](/assets/images/tutorial/allback-text-button.png)
