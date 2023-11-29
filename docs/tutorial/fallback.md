@@ -40,6 +40,13 @@ Action Fallback
 
 默认回复下方出现配置的按钮。
 
-*该修改实时生效，无重新需训练。*
+1、为什么配置了按钮未出现？
+> 确认所配置的Flow/FAQ是否发布、启用。
+
+2、我修改了配置需要重新训练吗？
+> 修改实时生效，无重新需训练。
+
+3、添加个数有限制吗？
+> 暂时未限制。
 
 ![fallback-text-button](/assets/images/tutorial/allback-text-button.png)
