@@ -160,6 +160,7 @@ jsonpath==0.82
 第 2 步：训练模型。
 ```shell
 
+
 # 训练模型
 rasa train
 
